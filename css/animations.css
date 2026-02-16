@@ -1,0 +1,41 @@
+/* ============================================
+   KELAP - CSS Keyframe Animations
+   ============================================ */
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: translateY(0) rotate(45deg);
+    }
+    50% {
+        opacity: 0.4;
+        transform: translateY(8px) rotate(45deg);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+@keyframes diagonalScroll {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 200px 200px;
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 30px rgba(37, 211, 102, 0.3), 0 0 60px rgba(37, 211, 102, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 50px rgba(37, 211, 102, 0.5), 0 0 100px rgba(37, 211, 102, 0.2);
+    }
+}

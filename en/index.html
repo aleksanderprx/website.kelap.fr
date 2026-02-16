@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KELAP &mdash; Creative Digital Agency | Websites, SaaS &amp; SEO</title>
+    <meta name="description" content="KELAP, creative digital agency. We build websites, landing pages, SaaS applications, e-commerce, SEO and AI automation. Real results, 50+ projects delivered.">
+    <meta name="author" content="KELAP">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#0a0f14">
+
+    <!-- Canonical & Hreflang -->
+    <link rel="canonical" href="https://website.kelap.fr/en/">
+    <link rel="alternate" hreflang="fr" href="https://website.kelap.fr/">
+    <link rel="alternate" hreflang="en" href="https://website.kelap.fr/en/">
+    <link rel="alternate" hreflang="x-default" href="https://website.kelap.fr/en/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="KELAP &mdash; Creative Digital Agency">
+    <meta property="og:description" content="Websites, SaaS, e-commerce, SEO and AI automation. 50+ projects delivered, 98% client satisfaction.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://website.kelap.fr/en/">
+    <meta property="og:image" content="https://website.kelap.fr/assets/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="KELAP - Creative Digital Agency">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:site_name" content="KELAP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="KELAP &mdash; Creative Digital Agency">
+    <meta name="twitter:description" content="Websites, SaaS, e-commerce, SEO and AI automation. 50+ projects delivered, 98% client satisfaction.">
+    <meta name="twitter:image" content="https://website.kelap.fr/assets/images/og-image.png">
+    <meta name="twitter:image:alt" content="KELAP - Creative Digital Agency">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="../assets/fonts/Cocogoose-Pro-Bold.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="../assets/fonts/HelveticaNeue-Light.otf" as="font" type="font/otf" crossorigin>
+
+    <!-- Google Fonts (non-render-blocking) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap"></noscript>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+
+    <!-- Geo-redirect: France → French version -->
+    <script>
+    (function(){
+        if (sessionStorage.getItem('kelap_geo') === 'FR') {
+            window.location.replace('/');
+            return;
+        }
+        if (!sessionStorage.getItem('kelap_geo')) {
+            fetch('https://ipapi.co/json/', { signal: AbortSignal.timeout(3000) })
+                .then(function(r){ return r.json(); })
+                .then(function(d){
+                    sessionStorage.setItem('kelap_geo', d.country_code || 'XX');
+                    if (d.country_code === 'FR') window.location.replace('/');
+                })
+                .catch(function(){ sessionStorage.setItem('kelap_geo', 'XX'); });
+        }
+    })();
+    </script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://website.kelap.fr/#organization",
+                "name": "KELAP",
+                "url": "https://kelap.fr",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://website.kelap.fr/assets/images/logo-kelap.png",
+                    "width": 2305,
+                    "height": 616
+                },
+                "description": "Creative digital agency specializing in website creation, SaaS applications, e-commerce, SEO and AI automation.",
+                "sameAs": [
+                    "https://kelap.fr"
+                ],
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "customer service",
+                    "url": "https://wa.me/33762339721",
+                    "availableLanguage": ["French", "English"]
+                }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://website.kelap.fr/en/#website",
+                "url": "https://website.kelap.fr/en/",
+                "name": "KELAP \u2014 Creative Digital Agency",
+                "description": "KELAP creates digital experiences that convert. Websites, branding and digital strategies powered by AI.",
+                "publisher": {
+                    "@id": "https://website.kelap.fr/#organization"
+                },
+                "inLanguage": "en"
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://website.kelap.fr/en/#webpage",
+                "url": "https://website.kelap.fr/en/",
+                "name": "KELAP \u2014 Creative Digital Agency | Websites, SaaS & SEO",
+                "isPartOf": {
+                    "@id": "https://website.kelap.fr/en/#website"
+                },
+                "about": {
+                    "@id": "https://website.kelap.fr/#organization"
+                },
+                "description": "KELAP, creative digital agency. Websites, landing pages, SaaS applications, e-commerce, SEO and AI automation.",
+                "inLanguage": "en"
+            },
+            {
+                "@type": "Service",
+                "serviceType": "Website creation",
+                "provider": {
+                    "@id": "https://website.kelap.fr/#organization"
+                },
+                "areaServed": {
+                    "@type": "Place",
+                    "name": "Worldwide"
+                },
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Digital services",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Websites"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "E-commerce"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Web Apps & SaaS"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Landing Pages"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "SEO"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "AI Automation"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Digital Marketing"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Skip to content -->
+    <a href="#value" class="skip-link">Skip to main content</a>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor" aria-hidden="true">
+        <div class="cursor__dot"></div>
+        <div class="cursor__ring"></div>
+    </div>
+
+    <!-- ============================================
+         SECTION 1: HERO
+         ============================================ -->
+    <header id="hero" class="section section--hero">
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero__overlay"></div>
+
+        <nav class="hero__nav" aria-label="Main navigation">
+            <img src="../assets/images/logo-kelap.png" alt="KELAP - Creative Digital Agency" class="hero__logo" width="2305" height="616">
+            <div class="lang-switch" role="navigation" aria-label="Language">
+                <a href="/" class="lang-switch__option" data-lang="fr" onclick="sessionStorage.setItem('kelap_geo','FR')">FR</a>
+                <a href="/en/" class="lang-switch__option" data-lang="en" aria-current="page">EN</a>
+                <div class="lang-switch__slider" aria-hidden="true"></div>
+            </div>
+        </nav>
+
+        <div class="hero__content">
+            <p class="hero__eyebrow">KELAP DIGITAL AGENCY</p>
+            <h1 class="hero__title">
+                <span class="hero__title-line">Loved this</span>
+                <span class="hero__title-line">website?</span>
+            </h1>
+            <p class="hero__subtitle">We built it.</p>
+        </div>
+
+        <div class="hero__scroll" aria-hidden="true">
+            <span class="hero__scroll-text">Scroll</span>
+            <div class="hero__scroll-arrow"></div>
+        </div>
+    </header>
+
+    <main>
+    <!-- ============================================
+         SECTION 2: VALUE PROPOSITION
+         ============================================ -->
+    <section id="value" class="section section--value">
+        <div class="container">
+            <div class="value__text">
+                <h2 class="value__headline">
+                    <span>CREATIVE</span>
+                    <span>DIGITAL</span>
+                    <span>SOLUTIONS</span>
+                </h2>
+                <p class="value__description">
+                    We create digital experiences that convert.
+                    From websites to brand strategies, powered by AI
+                    and designed to perform.
+                </p>
+            </div>
+
+            <div class="value__line" role="presentation"></div>
+
+            <div class="value__stats">
+                <div class="stat">
+                    <span class="stat__number" data-target="50">0</span>
+                    <span class="stat__suffix">+</span>
+                    <span class="stat__label">Projects Delivered</span>
+                </div>
+                <div class="stat">
+                    <span class="stat__number" data-target="98">0</span>
+                    <span class="stat__suffix">%</span>
+                    <span class="stat__label">Client Satisfaction</span>
+                </div>
+                <div class="stat">
+                    <span class="stat__number" data-target="3">0</span>
+                    <span class="stat__suffix">x</span>
+                    <span class="stat__label">Average ROI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 3: PORTFOLIO
+         ============================================ -->
+    <section id="portfolio" class="section section--portfolio">
+        <div class="container">
+            <div class="portfolio__header">
+                <h2 class="portfolio__title">OUR WORK</h2>
+                <p class="portfolio__subtitle">Projects that speak for themselves</p>
+            </div>
+
+            <div class="portfolio__grid">
+                <!-- Item 1 - Plancha Pizza -->
+                <a href="https://pizza.kelap.fr" target="_blank" rel="noopener" class="portfolio__item">
+                    <div class="portfolio__image-wrapper">
+                        <img src="../assets/images/Plancha Pizza.png" alt="Plancha Pizza - Restaurant website" width="768" height="1120" loading="lazy" decoding="async">
+                        <div class="portfolio__item-overlay">
+                            <span class="portfolio__item-category">Plancha Pizza</span>
+                            <h3 class="portfolio__item-title">Website</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Item 2 - Santé Plus -->
+                <a href="https://santeplus.kelap.fr" target="_blank" rel="noopener" class="portfolio__item">
+                    <div class="portfolio__image-wrapper">
+                        <img src="../assets/images/Sant%C3%A9%20Plus.png" alt="Sant&eacute; Plus - Healthcare landing page" width="768" height="560" loading="lazy" decoding="async">
+                        <div class="portfolio__item-overlay">
+                            <span class="portfolio__item-category">Sant&eacute; Plus</span>
+                            <h3 class="portfolio__item-title">Landing Page</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Item 3 - Pulp -->
+                <a href="https://pulp.kelap.fr" target="_blank" rel="noopener" class="portfolio__item">
+                    <div class="portfolio__image-wrapper">
+                        <img src="../assets/images/Pulp.png" alt="Pulp - Creative landing page" width="768" height="560" loading="lazy" decoding="async">
+                        <div class="portfolio__item-overlay">
+                            <span class="portfolio__item-category">Pulp</span>
+                            <h3 class="portfolio__item-title">Landing Page</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Item 4 - SaaS -->
+                <div class="portfolio__item">
+                    <div class="portfolio__image-wrapper">
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="../assets/images/Saas-mobil.png" width="768" height="472">
+                            <img src="../assets/images/Saas.png" alt="Custom SaaS web application" width="1536" height="560" loading="lazy" decoding="async">
+                        </picture>
+                        <div class="portfolio__item-overlay">
+                            <span class="portfolio__item-category">Confidential Project</span>
+                            <h3 class="portfolio__item-title">Web App</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4: SERVICES
+         ============================================ -->
+    <section id="services" class="section section--services">
+        <div class="container">
+            <div class="services__header">
+                <h2 class="services__title">WHAT WE DO</h2>
+                <p class="services__title services__title--outline" aria-hidden="true">BEST</p>
+            </div>
+
+            <div class="services__list" role="list">
+                <a href="#cta" class="service-item" role="listitem">
+                    <span class="service-item__number">01</span>
+                    <span class="service-item__name">Websites</span>
+                    <span class="service-item__desc">Showcase &amp; e-commerce sites that convert</span>
+                    <span class="service-item__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href="#cta" class="service-item" role="listitem">
+                    <span class="service-item__number">02</span>
+                    <span class="service-item__name">E-commerce</span>
+                    <span class="service-item__desc">High-performing online stores that drive sales</span>
+                    <span class="service-item__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href="#cta" class="service-item" role="listitem">
+                    <span class="service-item__number">03</span>
+                    <span class="service-item__name">Web Apps</span>
+                    <span class="service-item__desc">Custom-built, robust and scalable applications</span>
+                    <span class="service-item__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href="#cta" class="service-item" role="listitem">
+                    <span class="service-item__number">04</span>
+                    <span class="service-item__name">SaaS</span>
+                    <span class="service-item__desc">From MVP to final product, we build it all</span>
+                    <span class="service-item__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href="#cta" class="service-item" role="listitem">
+                    <span class="service-item__number">05</span>
+                    <span class="service-item__name">Landing Pages</span>
+                    <span class="service-item__desc">Optimized pages to maximize your leads</span>
+                    <span class="service-item__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href="#cta" class="service-item" role="listitem">
+                    <span class="service-item__number">06</span>
+                    <span class="service-item__name">SEO</span>
+                    <span class="service-item__desc">Organic search optimization to dominate Google</span>
+                    <span class="service-item__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href="#cta" class="service-item" role="listitem">
+                    <span class="service-item__number">07</span>
+                    <span class="service-item__name">AI Automation</span>
+                    <span class="service-item__desc">Artificial intelligence powering your growth</span>
+                    <span class="service-item__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href="#cta" class="service-item" role="listitem">
+                    <span class="service-item__number">08</span>
+                    <span class="service-item__name">Digital Marketing</span>
+                    <span class="service-item__desc">Strategic campaigns &amp; customer acquisition</span>
+                    <span class="service-item__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 5: SOCIAL PROOF
+         ============================================ -->
+    <section id="trust" class="section section--trust">
+        <div class="container">
+            <div class="trust__container">
+                <div class="trust__quote">
+                    <blockquote>
+                        <p>KELAP completely transformed our online presence. Real results from the very first month, a true game-changer for our business.</p>
+                        <cite>&mdash; Satisfied client</cite>
+                    </blockquote>
+                </div>
+
+                <div class="trust__divider" role="presentation"></div>
+
+                <div class="trust__badges">
+                    <div class="trust__badge">
+                        <img src="../assets/icons/icon-shield.png" alt="Quality shield" class="trust__badge-icon" width="48" height="56" loading="lazy" decoding="async">
+                        <span class="trust__badge-label">Quality Guaranteed</span>
+                    </div>
+                    <div class="trust__badge">
+                        <span class="trust__badge-number" data-target="24">0</span>
+                        <span class="trust__badge-label">Max Response Hours</span>
+                    </div>
+                    <div class="trust__badge">
+                        <span class="trust__badge-number" data-target="100">0</span>
+                        <span class="trust__badge-label">% Tailor-Made</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 6: CTA
+         ============================================ -->
+    <section id="cta" class="section section--cta">
+        <div class="cta__pattern" aria-hidden="true"></div>
+        <div class="container">
+            <div class="cta__container">
+                <h2 class="cta__title">
+                    <span>READY TO TRANSFORM</span>
+                    <span>YOUR DIGITAL PRESENCE?</span>
+                </h2>
+                <p class="cta__subtitle">
+                    Let's talk about your project. Response within 24 hours.
+                </p>
+
+                <div class="cta__buttons">
+                    <a href="https://wa.me/33762339721" class="cta__whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat with KELAP on WhatsApp">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" width="24" height="24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        <span>Chat on WhatsApp</span>
+                    </a>
+                    <a href="https://kelap.fr" class="cta__secondary" target="_blank" rel="noopener noreferrer">
+                        Discover kelap.fr &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <img src="../assets/images/logo-kelap.png" alt="KELAP" class="footer__logo" width="2305" height="616" loading="lazy" decoding="async">
+            <p class="footer__tagline">TAILOR-MADE DIGITAL STRATEGIES</p>
+            <p class="footer__copyright">&copy; 2026 KELAP. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts (CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js" defer></script>
+
+    <!-- App Scripts -->
+    <script src="../js/three-bg.js" defer></script>
+    <script src="../js/counters.js" defer></script>
+    <script src="../js/portfolio.js" defer></script>
+    <script src="../js/cursor.js" defer></script>
+    <script src="../js/main.js" defer></script>
+
+    <!-- Noscript fallback -->
+    <noscript>
+        <style>
+            .hero__logo, .hero__eyebrow, .hero__title-line, .hero__subtitle, .hero__scroll,
+            .value__headline span, .value__description, .stat, .portfolio__title,
+            .portfolio__subtitle, .portfolio__item, .services__title, .service-item,
+            .trust__badge, .cta__title span, .cta__subtitle, .cta__buttons {
+                opacity: 1 !important;
+                transform: none !important;
+                clip-path: none !important;
+            }
+            .trust__quote .word { opacity: 1 !important; }
+            .trust__quote cite { opacity: 1 !important; }
+            .trust__quote::before, .trust__quote::after { transform: scale(1) !important; }
+            .service-item__desc { opacity: 0.7 !important; transform: none !important; }
+            .portfolio__item-overlay { transform: translateY(0) !important; }
+        </style>
+    </noscript>
+</body>
+</html>

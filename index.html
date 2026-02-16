@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KELAP &mdash; Agence Digitale Cr&eacute;ative | Sites Web, SaaS &amp; SEO</title>
+    <meta name="description" content="KELAP, agence digitale cr&eacute;ative &agrave; Paris. Cr&eacute;ation de sites web, landing pages, applications SaaS, e-commerce, SEO et automatisation IA. R&eacute;sultats concrets, +50 projets livr&eacute;s.">
+    <meta name="author" content="KELAP">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#0a0f14">
+
+    <!-- Canonical & Hreflang -->
+    <link rel="canonical" href="https://website.kelap.fr/">
+    <link rel="alternate" hreflang="fr" href="https://website.kelap.fr/">
+    <link rel="alternate" hreflang="en" href="https://website.kelap.fr/en/">
+    <link rel="alternate" hreflang="x-default" href="https://website.kelap.fr/en/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="KELAP &mdash; Agence Digitale Cr&eacute;ative">
+    <meta property="og:description" content="Cr&eacute;ation de sites web, SaaS, e-commerce, SEO et automatisation IA. +50 projets livr&eacute;s, 98% satisfaction client.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://website.kelap.fr/">
+    <meta property="og:image" content="https://website.kelap.fr/assets/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="KELAP - Agence Digitale Cr&eacute;ative">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="KELAP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="KELAP &mdash; Agence Digitale Cr&eacute;ative">
+    <meta name="twitter:description" content="Cr&eacute;ation de sites web, SaaS, e-commerce, SEO et automatisation IA. +50 projets livr&eacute;s, 98% satisfaction client.">
+    <meta name="twitter:image" content="https://website.kelap.fr/assets/images/og-image.png">
+    <meta name="twitter:image:alt" content="KELAP - Agence Digitale Cr&eacute;ative">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+
+    <!-- Preconnect — critical third-party origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+    <!-- Preload critical font -->
+    <link rel="preload" href="assets/fonts/Cocogoose-Pro-Bold.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/fonts/HelveticaNeue-Light.otf" as="font" type="font/otf" crossorigin>
+
+    <!-- Google Fonts — Space Grotesk (non-render-blocking) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap"></noscript>
+
+    <!-- Geo-redirect: non-France → English version -->
+    <script>
+    (function(){
+        if (sessionStorage.getItem('kelap_geo') && sessionStorage.getItem('kelap_geo') !== 'FR') {
+            window.location.replace('/en/');
+            return;
+        }
+        if (!sessionStorage.getItem('kelap_geo')) {
+            fetch('https://ipapi.co/json/', { signal: AbortSignal.timeout(3000) })
+                .then(function(r){ return r.json(); })
+                .then(function(d){
+                    sessionStorage.setItem('kelap_geo', d.country_code || 'XX');
+                    if (d.country_code !== 'FR') window.location.replace('/en/');
+                })
+                .catch(function(){ sessionStorage.setItem('kelap_geo', 'XX'); });
+        }
+    })();
+    </script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://website.kelap.fr/#organization",
+                "name": "KELAP",
+                "url": "https://kelap.fr",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://website.kelap.fr/assets/images/logo-kelap.png",
+                    "width": 2305,
+                    "height": 616
+                },
+                "description": "Agence digitale cr\u00e9ative sp\u00e9cialis\u00e9e en cr\u00e9ation de sites web, applications SaaS, e-commerce, SEO et automatisation IA.",
+                "sameAs": [
+                    "https://kelap.fr"
+                ],
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "customer service",
+                    "url": "https://wa.me/33762339721",
+                    "availableLanguage": "French"
+                }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://website.kelap.fr/#website",
+                "url": "https://website.kelap.fr/",
+                "name": "KELAP \u2014 Agence Digitale Cr\u00e9ative",
+                "description": "KELAP cr\u00e9e des exp\u00e9riences digitales qui convertissent. Sites web, branding et strat\u00e9gies digitales propuls\u00e9s par l'IA.",
+                "publisher": {
+                    "@id": "https://website.kelap.fr/#organization"
+                },
+                "inLanguage": "fr-FR"
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://website.kelap.fr/#webpage",
+                "url": "https://website.kelap.fr/",
+                "name": "KELAP \u2014 Agence Digitale Cr\u00e9ative | Sites Web, SaaS & SEO",
+                "isPartOf": {
+                    "@id": "https://website.kelap.fr/#website"
+                },
+                "about": {
+                    "@id": "https://website.kelap.fr/#organization"
+                },
+                "description": "KELAP, agence digitale cr\u00e9ative. Cr\u00e9ation de sites web, landing pages, applications SaaS, e-commerce, SEO et automatisation IA.",
+                "inLanguage": "fr-FR"
+            },
+            {
+                "@type": "Service",
+                "serviceType": "Cr\u00e9ation de sites web",
+                "provider": {
+                    "@id": "https://website.kelap.fr/#organization"
+                },
+                "areaServed": {
+                    "@type": "Country",
+                    "name": "France"
+                },
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Services digitaux",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Sites Web"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "E-commerce"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Web Apps & SaaS"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Landing Pages"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "SEO"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Automatisation IA"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Marketing Digital"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Skip to content (accessibility) -->
+    <a href="#value" class="skip-link">Aller au contenu principal</a>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor" aria-hidden="true">
+        <div class="cursor__dot"></div>
+        <div class="cursor__ring"></div>
+    </div>
+
+    <!-- ============================================
+         SECTION 1: HERO
+         ============================================ -->
+    <header id="hero" class="section section--hero">
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero__overlay"></div>
+
+        <nav class="hero__nav" aria-label="Navigation principale">
+            <img src="assets/images/logo-kelap.png" alt="KELAP - Agence Digitale Cr&eacute;ative" class="hero__logo" width="2305" height="616">
+            <div class="lang-switch" role="navigation" aria-label="Langue">
+                <a href="/" class="lang-switch__option" data-lang="fr" aria-current="page">FR</a>
+                <a href="/en/" class="lang-switch__option" data-lang="en" onclick="sessionStorage.setItem('kelap_geo','XX')">EN</a>
+                <div class="lang-switch__slider" aria-hidden="true"></div>
+            </div>
+        </nav>
+
+        <div class="hero__content">
+            <p class="hero__eyebrow">KELAP DIGITAL AGENCY</p>
+            <h1 class="hero__title">
+                <span class="hero__title-line">Tu as aim&eacute;</span>
+                <span class="hero__title-line">ce site ?</span>
+            </h1>
+            <p class="hero__subtitle">On l'a cr&eacute;&eacute;.</p>
+        </div>
+
+        <div class="hero__scroll" aria-hidden="true">
+            <span class="hero__scroll-text">Scroll</span>
+            <div class="hero__scroll-arrow"></div>
+        </div>
+    </header>
+
+    <main>
+    <!-- ============================================
+         SECTION 2: VALUE PROPOSITION
+         ============================================ -->
+    <section id="value" class="section section--value">
+        <div class="container">
+            <div class="value__text">
+                <h2 class="value__headline">
+                    <span>CREATIVE</span>
+                    <span>DIGITAL</span>
+                    <span>SOLUTIONS</span>
+                </h2>
+                <p class="value__description">
+                    On cr&eacute;e des exp&eacute;riences digitales qui convertissent.
+                    Des sites web aux strat&eacute;gies de marque, propuls&eacute;s par l'IA
+                    et con&ccedil;us pour performer.
+                </p>
+            </div>
+
+            <div class="value__line" role="presentation"></div>
+
+            <div class="value__stats">
+                <div class="stat">
+                    <span class="stat__number" data-target="50">0</span>
+                    <span class="stat__suffix">+</span>
+                    <span class="stat__label">Projets Livr&eacute;s</span>
+                </div>
+                <div class="stat">
+                    <span class="stat__number" data-target="98">0</span>
+                    <span class="stat__suffix">%</span>
+                    <span class="stat__label">Satisfaction Client</span>
+                </div>
+                <div class="stat">
+                    <span class="stat__number" data-target="3">0</span>
+                    <span class="stat__suffix">x</span>
+                    <span class="stat__label">ROI Moyen</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 3: PORTFOLIO
+         ============================================ -->
+    <section id="portfolio" class="section section--portfolio">
+        <div class="container">
+            <div class="portfolio__header">
+                <h2 class="portfolio__title">NOS R&Eacute;ALISATIONS</h2>
+                <p class="portfolio__subtitle">Des projets qui parlent d'eux-m&ecirc;mes</p>
+            </div>
+
+            <div class="portfolio__grid">
+                <!-- Item 1 - Plancha Pizza (gauche, spans 2 rows) -->
+                <a href="https://pizza.kelap.fr" target="_blank" rel="noopener" class="portfolio__item">
+                    <div class="portfolio__image-wrapper">
+                        <img src="assets/images/Plancha Pizza.png" alt="Plancha Pizza - Site web vitrine pour restaurant" width="768" height="1120" loading="lazy" decoding="async">
+                        <div class="portfolio__item-overlay">
+                            <span class="portfolio__item-category">Plancha Pizza</span>
+                            <h3 class="portfolio__item-title">Site Web</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Item 2 - Santé Plus (milieu haut) -->
+                <a href="https://santeplus.kelap.fr" target="_blank" rel="noopener" class="portfolio__item">
+                    <div class="portfolio__image-wrapper">
+                        <img src="assets/images/Sant%C3%A9%20Plus.png" alt="Sant&eacute; Plus - Landing page sant&eacute; et bien-&ecirc;tre" width="768" height="560" loading="lazy" decoding="async">
+                        <div class="portfolio__item-overlay">
+                            <span class="portfolio__item-category">Sant&eacute; Plus</span>
+                            <h3 class="portfolio__item-title">Landing Page</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Item 3 - Pulp (droite haut) -->
+                <a href="https://pulp.kelap.fr" target="_blank" rel="noopener" class="portfolio__item">
+                    <div class="portfolio__image-wrapper">
+                        <img src="assets/images/Pulp.png" alt="Pulp - Landing page cr&eacute;ative" width="768" height="560" loading="lazy" decoding="async">
+                        <div class="portfolio__item-overlay">
+                            <span class="portfolio__item-category">Pulp</span>
+                            <h3 class="portfolio__item-title">Landing Page</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Item 4 - SaaS (bas, spans 2 columns) -->
+                <div class="portfolio__item">
+                    <div class="portfolio__image-wrapper">
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="assets/images/Saas-mobil.png" width="768" height="472">
+                            <img src="assets/images/Saas.png" alt="Application web SaaS sur mesure" width="1536" height="560" loading="lazy" decoding="async">
+                        </picture>
+                        <div class="portfolio__item-overlay">
+                            <span class="portfolio__item-category">Projet Confidentiel</span>
+                            <h3 class="portfolio__item-title">Web App</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4: SERVICES
+         ============================================ -->
+    <section id="services" class="section section--services">
+        <div class="container">
+            <div class="services__header">
+                <h2 class="services__title">CE QU'ON FAIT</h2>
+                <p class="services__title services__title--outline" aria-hidden="true">DE MIEUX</p>
+            </div>
+
+            <div class="services__list" role="list">
+                <a href="#cta" class="service-item" role="listitem">
+                    <span class="service-item__number">01</span>
+                    <span class="service-item__name">Sites Web</span>
+                    <span class="service-item__desc">Vitrines &amp; e-commerce qui convertissent</span>
+                    <span class="service-item__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href="#cta" class="service-item" role="listitem">
+                    <span class="service-item__number">02</span>
+                    <span class="service-item__name">E-commerce</span>
+                    <span class="service-item__desc">Boutiques en ligne performantes qui g&eacute;n&egrave;rent des ventes</span>
+                    <span class="service-item__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href="#cta" class="service-item" role="listitem">
+                    <span class="service-item__number">03</span>
+                    <span class="service-item__name">Web Apps</span>
+                    <span class="service-item__desc">Applications sur mesure, robustes et scalables</span>
+                    <span class="service-item__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href="#cta" class="service-item" role="listitem">
+                    <span class="service-item__number">04</span>
+                    <span class="service-item__name">SaaS</span>
+                    <span class="service-item__desc">Du MVP au produit final, on build tout</span>
+                    <span class="service-item__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href="#cta" class="service-item" role="listitem">
+                    <span class="service-item__number">05</span>
+                    <span class="service-item__name">Landing Pages</span>
+                    <span class="service-item__desc">Pages optimis&eacute;es pour maximiser tes leads</span>
+                    <span class="service-item__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href="#cta" class="service-item" role="listitem">
+                    <span class="service-item__number">06</span>
+                    <span class="service-item__name">SEO</span>
+                    <span class="service-item__desc">R&eacute;f&eacute;rencement naturel pour dominer Google</span>
+                    <span class="service-item__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href="#cta" class="service-item" role="listitem">
+                    <span class="service-item__number">07</span>
+                    <span class="service-item__name">Automatisation IA</span>
+                    <span class="service-item__desc">Intelligence artificielle au service de ta croissance</span>
+                    <span class="service-item__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href="#cta" class="service-item" role="listitem">
+                    <span class="service-item__number">08</span>
+                    <span class="service-item__name">Marketing Digital</span>
+                    <span class="service-item__desc">Campagnes strat&eacute;giques &amp; acquisition</span>
+                    <span class="service-item__arrow" aria-hidden="true">&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 5: SOCIAL PROOF
+         ============================================ -->
+    <section id="trust" class="section section--trust">
+        <div class="container">
+            <div class="trust__container">
+                <div class="trust__quote">
+                    <blockquote>
+                        <p>KELAP a compl&egrave;tement transform&eacute; notre pr&eacute;sence en ligne. R&eacute;sultats concrets d&egrave;s le premier mois, un vrai game-changer pour notre business.</p>
+                        <cite>&mdash; Client satisfait</cite>
+                    </blockquote>
+                </div>
+
+                <div class="trust__divider" role="presentation"></div>
+
+                <div class="trust__badges">
+                    <div class="trust__badge">
+                        <img src="assets/icons/icon-shield.png" alt="Bouclier qualit&eacute;" class="trust__badge-icon" width="48" height="56" loading="lazy" decoding="async">
+                        <span class="trust__badge-label">Qualit&eacute; Garantie</span>
+                    </div>
+                    <div class="trust__badge">
+                        <span class="trust__badge-number" data-target="24">0</span>
+                        <span class="trust__badge-label">Heures de R&eacute;ponse Max</span>
+                    </div>
+                    <div class="trust__badge">
+                        <span class="trust__badge-number" data-target="100">0</span>
+                        <span class="trust__badge-label">% Sur Mesure</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 6: CTA
+         ============================================ -->
+    <section id="cta" class="section section--cta">
+        <div class="cta__pattern" aria-hidden="true"></div>
+        <div class="container">
+            <div class="cta__container">
+                <h2 class="cta__title">
+                    <span>PR&Ecirc;T &Agrave; TRANSFORMER</span>
+                    <span>TA PR&Eacute;SENCE DIGITALE ?</span>
+                </h2>
+                <p class="cta__subtitle">
+                    Discutons de ton projet. R&eacute;ponse en moins de 24h.
+                </p>
+
+                <div class="cta__buttons">
+                    <a href="https://wa.me/33762339721" class="cta__whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Discuter sur WhatsApp avec KELAP">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" width="24" height="24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        <span>Discuter sur WhatsApp</span>
+                    </a>
+                    <a href="https://kelap.fr" class="cta__secondary" target="_blank" rel="noopener noreferrer">
+                        D&eacute;couvrir kelap.fr &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <img src="assets/images/logo-kelap.png" alt="KELAP" class="footer__logo" width="2305" height="616" loading="lazy" decoding="async">
+            <p class="footer__tagline">STRAT&Eacute;GIES DIGITALES SUR MESURE</p>
+            <p class="footer__copyright">&copy; 2026 KELAP. Tous droits r&eacute;serv&eacute;s.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts (CDN) — defer for non-render-blocking -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js" defer></script>
+
+    <!-- App Scripts -->
+    <script src="js/three-bg.js" defer></script>
+    <script src="js/counters.js" defer></script>
+    <script src="js/portfolio.js" defer></script>
+    <script src="js/cursor.js" defer></script>
+    <script src="js/main.js" defer></script>
+
+    <!-- Noscript fallback -->
+    <noscript>
+        <style>
+            .hero__logo, .hero__eyebrow, .hero__title-line, .hero__subtitle, .hero__scroll,
+            .value__headline span, .value__description, .stat, .portfolio__title,
+            .portfolio__subtitle, .portfolio__item, .services__title, .service-item,
+            .trust__badge, .cta__title span, .cta__subtitle, .cta__buttons {
+                opacity: 1 !important;
+                transform: none !important;
+                clip-path: none !important;
+            }
+            .trust__quote .word { opacity: 1 !important; }
+            .trust__quote cite { opacity: 1 !important; }
+            .trust__quote::before, .trust__quote::after { transform: scale(1) !important; }
+            .service-item__desc { opacity: 0.7 !important; transform: none !important; }
+            .portfolio__item-overlay { transform: translateY(0) !important; }
+        </style>
+    </noscript>
+</body>
+</html>
