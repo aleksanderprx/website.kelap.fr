@@ -375,4 +375,36 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         once: true
     });
+
+    // ==========================================
+    // SMOOTH SCROLL — Anchor links (#cta, etc.)
+    // ==========================================
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('href');
+            if (!targetId || targetId === '#') return;
+            const target = document.querySelector(targetId);
+            if (!target) return;
+            e.preventDefault();
+            gsap.to(window, {
+                scrollTo: { y: target, offsetY: 0 },
+                duration: 1,
+                ease: 'power2.inOut'
+            });
+        });
+    });
+
+    // Handle hash in URL on page load (e.g. /#cta)
+    if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+            window.scrollTo(0, 0);
+            gsap.to(window, {
+                scrollTo: { y: target, offsetY: 0 },
+                duration: 1,
+                delay: 0.5,
+                ease: 'power2.inOut'
+            });
+        }
+    }
 });
