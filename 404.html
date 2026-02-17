@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 &mdash; Page introuvable | KELAP</title>
+    <meta name="description" content="Cette page n'existe pas. Retournez sur le site de KELAP, agence digitale cr&eacute;ative.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#0a0f14">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="assets/fonts/Cocogoose-Pro-Bold.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/fonts/HelveticaNeue-Light.otf" as="font" type="font/otf" crossorigin>
+
+    <!-- Google Fonts -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap"></noscript>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <style>
+        /* ============================================
+           404 PAGE — Specific Styles
+           ============================================ */
+
+        .page-404 {
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: var(--color-dark-bg);
+            overflow: hidden;
+        }
+
+        /* Gradient overlay */
+        .page-404__bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 50% 40%, rgba(44, 62, 80, 0.25) 0%, transparent 60%),
+                        radial-gradient(ellipse at 20% 80%, rgba(59, 79, 97, 0.1) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 20%, rgba(44, 62, 80, 0.08) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        /* Scanlines */
+        .page-404__scanlines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 0, 0, 0.03) 2px,
+                rgba(0, 0, 0, 0.03) 4px
+            );
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Noise canvas */
+        .page-404__noise {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            opacity: 0.04;
+            pointer-events: none;
+        }
+
+        /* Nav */
+        .page-404__nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 40px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        .page-404__logo {
+            height: 32px;
+            width: auto;
+        }
+
+        /* Content */
+        .page-404__content {
+            text-align: center;
+            z-index: 5;
+            position: relative;
+        }
+
+        /* 404 Number — the star of the show */
+        .page-404__number {
+            font-family: var(--font-headline);
+            font-weight: 700;
+            font-size: clamp(120px, 22vw, 280px);
+            line-height: 0.9;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15);
+            position: relative;
+            display: inline-block;
+            user-select: none;
+        }
+
+        /* Filled layer — clips in via GSAP */
+        .page-404__number-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-family: var(--font-headline);
+            font-weight: 700;
+            font-size: clamp(120px, 22vw, 280px);
+            line-height: 0.9;
+            color: var(--color-white);
+            -webkit-text-stroke: 0;
+            clip-path: inset(0 100% 0 0);
+        }
+
+        /* Glitch layers */
+        .page-404__glitch {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-family: var(--font-headline);
+            font-weight: 700;
+            font-size: clamp(120px, 22vw, 280px);
+            line-height: 0.9;
+            -webkit-text-stroke: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .page-404__glitch--red {
+            color: var(--color-red);
+        }
+
+        .page-404__glitch--cyan {
+            color: #00F5FF;
+        }
+
+        /* Eyebrow */
+        .page-404__eyebrow {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--color-gray);
+            margin-bottom: 40px;
+        }
+
+        /* Message */
+        .page-404__message {
+            font-family: var(--font-headline);
+            font-weight: 300;
+            font-size: clamp(20px, 3vw, 36px);
+            color: var(--color-gray);
+            margin-top: 32px;
+            max-width: 600px;
+        }
+
+        /* CTA Button */
+        .page-404__cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 48px;
+            padding: 18px 44px;
+            background: transparent;
+            color: var(--color-white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 60px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.4s var(--ease-smooth), transform 0.3s var(--ease-smooth);
+        }
+
+        .page-404__cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color-white);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 0;
+        }
+
+        .page-404__cta:hover::before {
+            transform: scaleX(1);
+        }
+
+        .page-404__cta:hover {
+            border-color: var(--color-white);
+            color: var(--color-black);
+            transform: scale(1.04);
+        }
+
+        .page-404__cta span,
+        .page-404__cta-arrow {
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s;
+        }
+
+        .page-404__cta:hover span,
+        .page-404__cta:hover .page-404__cta-arrow {
+            color: var(--color-black);
+        }
+
+        .page-404__cta-arrow {
+            font-size: 20px;
+            transition: transform 0.4s var(--ease-smooth), color 0.4s;
+        }
+
+        .page-404__cta:hover .page-404__cta-arrow {
+            transform: translateX(4px);
+        }
+
+        /* Floating particles */
+        .page-404__particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+        }
+
+        /* Horizontal glitch line */
+        .page-404__glitch-line {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.06);
+            z-index: 4;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        /* Footer minimal */
+        .page-404__footer {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 5;
+        }
+
+        .page-404__footer p {
+            font-family: var(--font-body);
+            font-weight: 300;
+            font-size: 13px;
+            color: var(--color-gray);
+            opacity: 0.4;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .page-404__nav {
+                padding: 24px 20px;
+            }
+
+            .page-404__logo {
+                height: 26px;
+            }
+
+            .page-404__eyebrow {
+                font-size: 11px;
+                letter-spacing: 3px;
+                margin-bottom: 24px;
+            }
+
+            .page-404__number {
+                -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.15);
+            }
+
+            .page-404__message {
+                font-size: 20px;
+                margin-top: 24px;
+                padding: 0 20px;
+            }
+
+            .page-404__cta {
+                margin-top: 36px;
+                padding: 16px 36px;
+                font-size: 14px;
+            }
+
+            .page-404__footer {
+                bottom: 24px;
+            }
+
+            html.js-loaded body {
+                cursor: auto;
+            }
+
+            .cursor {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-404__number {
+                -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor" aria-hidden="true">
+        <div class="cursor__dot"></div>
+        <div class="cursor__ring"></div>
+    </div>
+
+    <div class="page-404">
+        <div class="page-404__bg"></div>
+        <div class="page-404__scanlines"></div>
+        <canvas class="page-404__noise" id="noise-canvas"></canvas>
+
+        <!-- Floating particles container -->
+        <div class="page-404__particles" id="particles"></div>
+
+        <!-- Glitch lines -->
+        <div class="page-404__glitch-line" id="glitch-line-1"></div>
+        <div class="page-404__glitch-line" id="glitch-line-2"></div>
+        <div class="page-404__glitch-line" id="glitch-line-3"></div>
+
+        <!-- Nav -->
+        <nav class="page-404__nav" aria-label="Navigation">
+            <a href="/">
+                <img src="assets/images/logo-kelap.png" alt="KELAP" class="page-404__logo" width="2305" height="616">
+            </a>
+            <div class="lang-switch" role="navigation" aria-label="Langue">
+                <a href="/404.html" class="lang-switch__option" data-lang="fr" aria-current="page">FR</a>
+                <a href="/en/404.html" class="lang-switch__option" data-lang="en" onclick="sessionStorage.setItem('kelap_geo','XX')">EN</a>
+                <div class="lang-switch__slider" aria-hidden="true"></div>
+            </div>
+        </nav>
+
+        <!-- Content -->
+        <div class="page-404__content">
+            <p class="page-404__eyebrow">ERREUR</p>
+
+            <div class="page-404__number" aria-label="404" id="number-404">
+                <span>404</span>
+                <div class="page-404__number-fill" id="number-fill" aria-hidden="true">404</div>
+                <div class="page-404__glitch page-404__glitch--red" id="glitch-red" aria-hidden="true">404</div>
+                <div class="page-404__glitch page-404__glitch--cyan" id="glitch-cyan" aria-hidden="true">404</div>
+            </div>
+
+            <p class="page-404__message">Cette page n'existe pas.</p>
+
+            <a href="/" class="page-404__cta">
+                <span>Retour &agrave; l'accueil</span>
+                <span class="page-404__cta-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="page-404__footer">
+            <p>&copy; 2026 KELAP. Tous droits r&eacute;serv&eacute;s.</p>
+        </div>
+    </div>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+
+    <!-- Cursor -->
+    <script src="js/cursor.js" defer></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.documentElement.classList.add('js-loaded');
+        CustomCursor.init();
+
+        // ==========================================
+        // NOISE CANVAS
+        // ==========================================
+        const noiseCanvas = document.getElementById('noise-canvas');
+        const noiseCtx = noiseCanvas.getContext('2d');
+
+        function resizeNoise() {
+            noiseCanvas.width = window.innerWidth / 2;
+            noiseCanvas.height = window.innerHeight / 2;
+        }
+        resizeNoise();
+        window.addEventListener('resize', resizeNoise);
+
+        function renderNoise() {
+            const w = noiseCanvas.width;
+            const h = noiseCanvas.height;
+            const imageData = noiseCtx.createImageData(w, h);
+            const data = imageData.data;
+            for (let i = 0; i < data.length; i += 4) {
+                const v = Math.random() * 255;
+                data[i] = v;
+                data[i + 1] = v;
+                data[i + 2] = v;
+                data[i + 3] = 255;
+            }
+            noiseCtx.putImageData(imageData, 0, 0);
+        }
+
+        let noiseFrame = 0;
+        function noiseLoop() {
+            noiseFrame++;
+            if (noiseFrame % 3 === 0) renderNoise();
+            requestAnimationFrame(noiseLoop);
+        }
+        noiseLoop();
+
+        // ==========================================
+        // FLOATING PARTICLES
+        // ==========================================
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 30;
+
+        for (let i = 0; i < particleCount; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = Math.random() * 100 + '%';
+            p.style.opacity = Math.random() * 0.4 + 0.1;
+            const size = Math.random() * 2 + 1;
+            p.style.width = size + 'px';
+            p.style.height = size + 'px';
+            particlesContainer.appendChild(p);
+
+            gsap.to(p, {
+                y: -80 - Math.random() * 120,
+                x: (Math.random() - 0.5) * 60,
+                opacity: 0,
+                duration: 4 + Math.random() * 6,
+                repeat: -1,
+                delay: Math.random() * 5,
+                ease: 'none'
+            });
+        }
+
+        // ==========================================
+        // ENTRANCE ANIMATION
+        // ==========================================
+        const tl = gsap.timeline({ delay: 0.2 });
+
+        // Hide elements initially
+        gsap.set('.page-404__logo', { opacity: 0 });
+        gsap.set('.lang-switch', { opacity: 0 });
+        gsap.set('.page-404__eyebrow', { opacity: 0, y: 20 });
+        gsap.set('#number-404', { opacity: 0, scale: 0.8 });
+        gsap.set('.page-404__message', { opacity: 0, y: 30 });
+        gsap.set('.page-404__cta', { opacity: 0, y: 30 });
+        gsap.set('.page-404__footer', { opacity: 0 });
+
+        tl
+            .to('.page-404__logo', { opacity: 1, duration: 0.6, ease: 'power2.out' })
+            .to('.lang-switch', { opacity: 1, duration: 0.4, ease: 'power2.out' }, '-=0.3')
+            .to('.page-404__eyebrow', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.1')
+            .to('#number-404', {
+                opacity: 1,
+                scale: 1,
+                duration: 0.8,
+                ease: 'back.out(1.2)'
+            }, '-=0.2')
+            .to('#number-fill', {
+                clipPath: 'inset(0 0% 0 0)',
+                duration: 1.2,
+                ease: 'power3.inOut'
+            }, '-=0.4')
+            .to('.page-404__message', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.6')
+            .to('.page-404__cta', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.3')
+            .to('.page-404__footer', { opacity: 1, duration: 0.5, ease: 'power2.out' }, '-=0.2');
+
+        // ==========================================
+        // GLITCH LOOP — recurring glitch bursts
+        // ==========================================
+        const glitchRed = document.getElementById('glitch-red');
+        const glitchCyan = document.getElementById('glitch-cyan');
+        const numberFill = document.getElementById('number-fill');
+        const glitchLines = [
+            document.getElementById('glitch-line-1'),
+            document.getElementById('glitch-line-2'),
+            document.getElementById('glitch-line-3')
+        ];
+
+        function triggerGlitch() {
+            const burstTl = gsap.timeline();
+
+            // RGB split
+            burstTl
+                .set(glitchRed, { opacity: 0.7, x: -6, y: 2 })
+                .set(glitchCyan, { opacity: 0.5, x: 6, y: -2 })
+                .to(glitchRed, { x: 4, y: -1, duration: 0.08, ease: 'steps(2)' })
+                .to(glitchCyan, { x: -3, y: 1, duration: 0.08, ease: 'steps(2)' }, '<')
+                .set(glitchRed, { x: -8, y: 3 })
+                .set(glitchCyan, { x: 5, y: -3 })
+                .to([glitchRed, glitchCyan], { opacity: 0, duration: 0.06 }, '+=0.05')
+
+                // Horizontal offset on main number
+                .to(numberFill, { x: 3, duration: 0.04, ease: 'steps(1)' }, 0)
+                .to(numberFill, { x: -5, duration: 0.06, ease: 'steps(2)' }, 0.06)
+                .to(numberFill, { x: 0, duration: 0.04 }, 0.14);
+
+            // Glitch scan lines
+            glitchLines.forEach((line, i) => {
+                const y = Math.random() * 100;
+                gsap.timeline()
+                    .set(line, {
+                        top: y + '%',
+                        opacity: 1,
+                        height: Math.random() * 3 + 1 + 'px',
+                        background: 'rgba(255, 255, 255, ' + (Math.random() * 0.1 + 0.03) + ')'
+                    })
+                    .to(line, {
+                        opacity: 0,
+                        duration: 0.15 + Math.random() * 0.1,
+                        delay: i * 0.03,
+                        ease: 'power2.out'
+                    });
+            });
+        }
+
+        // Random glitch bursts
+        function scheduleGlitch() {
+            const delay = 2 + Math.random() * 4;
+            gsap.delayedCall(delay, () => {
+                triggerGlitch();
+                // Sometimes double glitch
+                if (Math.random() > 0.6) {
+                    gsap.delayedCall(0.15, triggerGlitch);
+                }
+                scheduleGlitch();
+            });
+        }
+
+        // Start glitch loop after entrance
+        gsap.delayedCall(2.5, scheduleGlitch);
+
+        // ==========================================
+        // MOUSE PARALLAX on 404 number
+        // ==========================================
+        const number404 = document.getElementById('number-404');
+        document.addEventListener('mousemove', (e) => {
+            const xPercent = (e.clientX / window.innerWidth - 0.5) * 2;
+            const yPercent = (e.clientY / window.innerHeight - 0.5) * 2;
+            gsap.to(number404, {
+                x: xPercent * 15,
+                y: yPercent * 10,
+                duration: 0.8,
+                ease: 'power2.out'
+            });
+        });
+    });
+    </script>
+
+</body>
+</html>
