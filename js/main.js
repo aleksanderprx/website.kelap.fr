@@ -426,12 +426,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const message = isFr
-                ? encodeURIComponent('Bonjour KELAP, merci de me rappeler au ' + phone)
-                : encodeURIComponent('Hi KELAP, please call me back at ' + phone);
-            window.open('https://wa.me/33762339721?text=' + message, '_blank');
+            // Send to Discord webhook
+            fetch('https://discord.com/api/webhooks/1473507987313393838/HE-vvDYh-MmivXQdfpRd7irmowsI5BZ3ZhFRuqzNo1NIUidBPmRsC3Vm2LGzB8I-4Ghn', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    embeds: [{
+                        title: '\ud83d\udcde Demande de rappel',
+                        color: 2067276,
+                        fields: [
+                            { name: 'T\u00e9l\u00e9phone', value: phone, inline: true },
+                            { name: 'Langue', value: isFr ? 'Fran\u00e7ais' : 'English', inline: true },
+                            { name: 'Page', value: window.location.href, inline: false }
+                        ],
+                        timestamp: new Date().toISOString()
+                    }]
+                })
+            }).catch(() => {});
 
-            status.textContent = isFr ? 'Demande envoy\u00e9e !' : 'Request sent!';
+            status.textContent = isFr ? 'Demande envoy\u00e9e ! On vous rappelle tr\u00e8s vite.' : 'Request sent! We\'ll call you back soon.';
             status.className = 'cta__callback-status cta__callback-status--success';
             phoneInput.value = '';
 
