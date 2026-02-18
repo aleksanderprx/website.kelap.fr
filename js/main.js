@@ -407,4 +407,38 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // ==========================================
+    // CALLBACK FORM
+    // ==========================================
+    const callbackForm = document.getElementById('callback-form');
+    if (callbackForm) {
+        const isFr = document.documentElement.lang === 'fr';
+        callbackForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const phoneInput = document.getElementById('callback-phone');
+            const status = document.getElementById('callback-status');
+            const phone = phoneInput.value.trim();
+
+            if (!phone || phone.length < 10) {
+                status.textContent = isFr ? 'Num\u00e9ro invalide.' : 'Invalid number.';
+                status.className = 'cta__callback-status cta__callback-status--error';
+                return;
+            }
+
+            const message = isFr
+                ? encodeURIComponent('Bonjour KELAP, merci de me rappeler au ' + phone)
+                : encodeURIComponent('Hi KELAP, please call me back at ' + phone);
+            window.open('https://wa.me/33762339721?text=' + message, '_blank');
+
+            status.textContent = isFr ? 'Demande envoy\u00e9e !' : 'Request sent!';
+            status.className = 'cta__callback-status cta__callback-status--success';
+            phoneInput.value = '';
+
+            setTimeout(() => {
+                status.textContent = '';
+                status.className = 'cta__callback-status';
+            }, 4000);
+        });
+    }
 });
