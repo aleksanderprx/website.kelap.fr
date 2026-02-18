@@ -414,17 +414,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const callbackForm = document.getElementById('callback-form');
     if (callbackForm) {
         const isFr = document.documentElement.lang === 'fr';
+
+        // Init country picker
+        CountryPicker.init('callback-country', isFr ? 'FR' : 'US', document.documentElement.lang);
+
         callbackForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const phoneInput = document.getElementById('callback-phone');
+            const countryPicker = document.getElementById('callback-country');
             const status = document.getElementById('callback-status');
             const phone = phoneInput.value.trim();
+            const countryCode = countryPicker.getValue();
 
-            if (!phone || phone.length < 10) {
+            if (!phone || phone.length < 6) {
                 status.textContent = isFr ? 'Num\u00e9ro invalide.' : 'Invalid number.';
                 status.className = 'cta__callback-status cta__callback-status--error';
                 return;
             }
+
+            const fullPhone = countryCode + ' ' + phone;
 
             // Send to Discord webhook
             fetch('https://discord.com/api/webhooks/1473507987313393838/HE-vvDYh-MmivXQdfpRd7irmowsI5BZ3ZhFRuqzNo1NIUidBPmRsC3Vm2LGzB8I-4Ghn', {
@@ -435,7 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         title: '\ud83d\udcde Demande de rappel',
                         color: 2067276,
                         fields: [
-                            { name: 'T\u00e9l\u00e9phone', value: phone, inline: true },
+                            { name: 'T\u00e9l\u00e9phone', value: fullPhone, inline: true },
                             { name: 'Langue', value: isFr ? 'Fran\u00e7ais' : 'English', inline: true },
                             { name: 'Page', value: window.location.href, inline: false }
                         ],

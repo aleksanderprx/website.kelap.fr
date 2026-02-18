@@ -437,7 +437,7 @@
                         <span class="trust__badge-label">Quality Guaranteed</span>
                     </div>
                     <div class="trust__badge">
-                        <span class="trust__badge-number" data-target="24">0</span>
+                        <span class="trust__badge-number" data-target="6">0</span>
                         <span class="trust__badge-label">Max Response Hours</span>
                     </div>
                     <div class="trust__badge">
@@ -461,7 +461,7 @@
                     <span>YOUR DIGITAL PRESENCE?</span>
                 </h2>
                 <p class="cta__subtitle">
-                    Let's talk about your project. Response within 24 hours.
+                    Let's talk about your project. Response within 6 hours.
                 </p>
 
                 <div class="cta__buttons">
@@ -481,7 +481,8 @@
                     <form class="cta__callback" id="callback-form">
                         <p class="cta__callback-label">We'll call you back</p>
                         <div class="cta__callback-row">
-                            <input type="tel" class="cta__callback-input" id="callback-phone" placeholder="+33 6 12 34 56 78" required autocomplete="tel" aria-label="Your phone number">
+                            <div class="cta__country-picker" id="callback-country"></div>
+                            <input type="tel" class="cta__callback-input" id="callback-phone" placeholder="6 12 34 56 78" required autocomplete="tel" aria-label="Your phone number">
                             <button type="submit" class="cta__callback-btn" aria-label="Send">
                                 <span>Send</span>
                                 <span class="cta__callback-arrow" aria-hidden="true">&rarr;</span>
@@ -490,9 +491,6 @@
                         <p class="cta__callback-status" id="callback-status" aria-live="polite"></p>
                     </form>
 
-                    <a href="https://kelap.fr" class="cta__secondary" target="_blank" rel="noopener noreferrer">
-                        Discover kelap.fr &rarr;
-                    </a>
                 </div>
             </div>
         </div>
@@ -522,6 +520,7 @@
     <script src="../js/counters.js" defer></script>
     <script src="../js/portfolio.js" defer></script>
     <script src="../js/cursor.js" defer></script>
+    <script src="../js/country-picker.js" defer></script>
     <script src="../js/main.js" defer></script>
 
     <!-- Noscript fallback -->

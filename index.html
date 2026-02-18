@@ -438,7 +438,7 @@
                         <span class="trust__badge-label">Qualit&eacute; Garantie</span>
                     </div>
                     <div class="trust__badge">
-                        <span class="trust__badge-number" data-target="24">0</span>
+                        <span class="trust__badge-number" data-target="6">0</span>
                         <span class="trust__badge-label">Heures de R&eacute;ponse Max</span>
                     </div>
                     <div class="trust__badge">
@@ -462,7 +462,7 @@
                     <span>TA PR&Eacute;SENCE DIGITALE ?</span>
                 </h2>
                 <p class="cta__subtitle">
-                    Discutons de ton projet. R&eacute;ponse en moins de 24h.
+                    Discutons de ton projet. R&eacute;ponse en moins de 6h.
                 </p>
 
                 <div class="cta__buttons">
@@ -482,7 +482,8 @@
                     <form class="cta__callback" id="callback-form">
                         <p class="cta__callback-label">On vous rappelle</p>
                         <div class="cta__callback-row">
-                            <input type="tel" class="cta__callback-input" id="callback-phone" placeholder="06 12 34 56 78" required autocomplete="tel" aria-label="Votre num&eacute;ro de t&eacute;l&eacute;phone">
+                            <div class="cta__country-picker" id="callback-country"></div>
+                            <input type="tel" class="cta__callback-input" id="callback-phone" placeholder="6 12 34 56 78" required autocomplete="tel" aria-label="Votre num&eacute;ro de t&eacute;l&eacute;phone">
                             <button type="submit" class="cta__callback-btn" aria-label="Envoyer">
                                 <span>Envoyer</span>
                                 <span class="cta__callback-arrow" aria-hidden="true">&rarr;</span>
@@ -491,9 +492,6 @@
                         <p class="cta__callback-status" id="callback-status" aria-live="polite"></p>
                     </form>
 
-                    <a href="https://kelap.fr" class="cta__secondary" target="_blank" rel="noopener noreferrer">
-                        D&eacute;couvrir kelap.fr &rarr;
-                    </a>
                 </div>
             </div>
         </div>
@@ -523,6 +521,7 @@
     <script src="js/counters.js" defer></script>
     <script src="js/portfolio.js" defer></script>
     <script src="js/cursor.js" defer></script>
+    <script src="js/country-picker.js" defer></script>
     <script src="js/main.js" defer></script>
 
     <!-- Noscript fallback -->
