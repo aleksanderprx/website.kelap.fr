@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, Observer);
 
     // Init modules
-    HeroBackground.init();
+    if (typeof THREE !== 'undefined' && typeof HeroBackground !== 'undefined') {
+        HeroBackground.init();
+    }
     CustomCursor.init();
     Portfolio.init();
 

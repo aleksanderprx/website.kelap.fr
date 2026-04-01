@@ -11,6 +11,7 @@ const HeroBackground = (() => {
     let isMobile = false;
 
     function init() {
+        if (typeof THREE === 'undefined') return;
         const canvas = document.getElementById('hero-canvas');
         if (!canvas) return;
 
