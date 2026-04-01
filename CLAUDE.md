@@ -1,8 +1,8 @@
-# KELAP - website.kelap.fr
+# KELAP - kelap.fr
 
 ## Projet
 Site vitrine de l'agence digitale KELAP. Site statique (HTML/CSS/JS pur, pas de framework).
-Heberge sur GitHub Pages : `aleksanderprx/website.kelap.fr`
+Heberge sur GitHub Pages : `aleksanderprx/kelap.fr`
 
 ## Structure
 ```
@@ -64,7 +64,7 @@ Heberge sur GitHub Pages : `aleksanderprx/website.kelap.fr`
 
 ### Deploy
 - Push sur `main` branch → GitHub Pages deploie automatiquement
-- Domaine : website.kelap.fr
+- Domaine : kelap.fr
 
 ## Ce qu'il ne faut PAS faire
 - Ne jamais ajouter de bundler/framework, le site doit rester statique

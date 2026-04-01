@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.classList.add('js-loaded');
 
     // Register GSAP plugins
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, Observer);
 
     // Init modules
     HeroBackground.init();
