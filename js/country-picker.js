@@ -215,13 +215,13 @@ const CountryPicker = (() => {
                     <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </button>
-            <div class="cta__country-dropdown" role="listbox">
-                <div class="cta__country-search-wrap">
+            <div class="cta__country-dropdown" role="listbox" aria-label="${isFr ? 'Liste des pays' : 'Country list'}">
+                <div class="cta__country-search-wrap" role="presentation">
                     <svg class="cta__country-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
                         <path d="M16 16L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg>
-                    <input type="text" class="cta__country-search" placeholder="${isFr ? 'Rechercher un pays...' : 'Search country...'}" autocomplete="off" spellcheck="false">
+                    <input type="text" class="cta__country-search" placeholder="${isFr ? 'Rechercher un pays...' : 'Search country...'}" aria-label="${isFr ? 'Rechercher un pays' : 'Search country'}" autocomplete="off" spellcheck="false">
                 </div>
                 <div class="cta__country-list"></div>
             </div>

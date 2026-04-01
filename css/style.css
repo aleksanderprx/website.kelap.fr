@@ -1348,7 +1348,7 @@ html.js-loaded .cta__callback-btn {
     text-transform: uppercase;
     color: var(--color-gray);
     margin-bottom: 24px;
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 .footer__copyright {
@@ -1356,7 +1356,7 @@ html.js-loaded .cta__callback-btn {
     font-weight: 300;
     font-size: 13px;
     color: var(--color-gray);
-    opacity: 0.4;
+    opacity: 0.6;
 }
 
 /* ============================================
