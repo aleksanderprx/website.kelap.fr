@@ -23,7 +23,7 @@ const CustomCursor = (() => {
 
         // Hover detection for interactive elements
         const hoverTargets = document.querySelectorAll(
-            'a, button, .portfolio__item, .service-item, .cta__whatsapp, .cta__secondary'
+            'a, button, .portfolio__card, .service-item, .cta__whatsapp, .cta__secondary, .faq__question'
         );
 
         hoverTargets.forEach(el => {

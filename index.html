@@ -223,10 +223,12 @@
 
         <nav class="hero__nav" aria-label="Navigation principale">
             <img src="assets/images/logo-kelap.png" alt="KELAP - Agence Digitale Cr&eacute;ative" class="hero__logo" width="2305" height="616">
-            <div class="lang-switch" role="navigation" aria-label="Langue">
+            <div class="hero__nav-right">
+                <div class="lang-switch" role="navigation" aria-label="Langue">
                 <a href="/" class="lang-switch__option" data-lang="fr" aria-current="page">FR</a>
                 <a href="/en/" class="lang-switch__option" data-lang="en" onclick="sessionStorage.setItem('kelap_geo','XX')">EN</a>
                 <div class="lang-switch__slider" aria-hidden="true"></div>
+            </div>
             </div>
         </nav>
 
@@ -237,6 +239,7 @@
                 <span class="hero__title-line">mieux qu'un template.</span>
             </h1>
             <p class="hero__subtitle">On cr&eacute;e du sur mesure.</p>
+            <a href="#cta" class="hero__cta-btn">Devis gratuit &rarr;</a>
         </div>
 
         <div class="hero__scroll" aria-hidden="true">
@@ -264,8 +267,6 @@
                 </p>
             </div>
 
-            <div class="value__line" role="presentation"></div>
-
             <div class="value__stats">
                 <div class="stat">
                     <span class="stat__number" data-target="15">0</span>
@@ -290,63 +291,86 @@
          SECTION 3: PORTFOLIO
          ============================================ -->
     <section id="portfolio" class="section section--portfolio">
-        <div class="container">
+        <div class="portfolio__pinned">
             <div class="portfolio__header">
                 <h2 class="portfolio__title">NOS R&Eacute;ALISATIONS</h2>
                 <p class="portfolio__subtitle">Des projets qui parlent d'eux-m&ecirc;mes</p>
             </div>
 
-            <div class="portfolio__grid">
-                <!-- Item 1 - Plancha Pizza (gauche, spans 2 rows) -->
-                <a href="https://pizza.kelap.fr" target="_blank" rel="noopener" class="portfolio__item">
-                    <div class="portfolio__image-wrapper">
-                        <img src="assets/images/Plancha Pizza.png" alt="Plancha Pizza - Site web vitrine pour restaurant" width="768" height="1120" loading="lazy" decoding="async">
-                        <div class="portfolio__item-overlay">
-                            <span class="portfolio__item-category">Plancha Pizza</span>
-                            <h3 class="portfolio__item-title">Site Web</h3>
+            <div class="portfolio__stack">
+                <!-- Item 1 - Plancha Pizza -->
+                <a href="https://pizza.kelap.fr" target="_blank" rel="noopener" class="portfolio__card">
+                    <div class="portfolio__card-inner">
+                        <img src="assets/images/Plancha Pizza.png" alt="Plancha Pizza - Site web vitrine pour restaurant" loading="lazy" decoding="async">
+                        <div class="portfolio__card-overlay">
+                            <span class="portfolio__card-category">Plancha Pizza</span>
+                            <h3 class="portfolio__card-title">Site Web</h3>
                         </div>
                     </div>
                 </a>
 
-                <!-- Item 2 - Atelier (milieu haut) -->
-                <a href="https://atelier.kelap.fr" target="_blank" rel="noopener" class="portfolio__item">
-                    <div class="portfolio__image-wrapper">
-                        <img src="assets/images/Atelier.png" alt="Atelier - Site web pour une &eacute;quipe de designers d'int&eacute;rieur" width="768" height="560" loading="lazy" decoding="async">
-                        <div class="portfolio__item-overlay">
-                            <span class="portfolio__item-category">Atelier</span>
-                            <h3 class="portfolio__item-title">Site Web</h3>
+                <!-- Item 2 - Atelier -->
+                <a href="https://atelier.kelap.fr" target="_blank" rel="noopener" class="portfolio__card">
+                    <div class="portfolio__card-inner">
+                        <img src="assets/images/Atelier.png" alt="Atelier - Site web pour designers d'int&eacute;rieur" loading="lazy" decoding="async">
+                        <div class="portfolio__card-overlay">
+                            <span class="portfolio__card-category">Atelier</span>
+                            <h3 class="portfolio__card-title">Site Web</h3>
                         </div>
                     </div>
                 </a>
 
-                <!-- Item 3 - Pulp (droite haut) -->
-                <a href="https://pulp.kelap.fr" target="_blank" rel="noopener" class="portfolio__item">
-                    <div class="portfolio__image-wrapper">
-                        <img src="assets/images/Pulp.png" alt="Pulp - Landing page cr&eacute;ative" width="768" height="560" loading="lazy" decoding="async">
-                        <div class="portfolio__item-overlay">
-                            <span class="portfolio__item-category">Pulp</span>
-                            <h3 class="portfolio__item-title">Landing Page</h3>
+                <!-- Item 3 - Santé Plus -->
+                <a href="https://santeplus.kelap.fr/" target="_blank" rel="noopener" class="portfolio__card">
+                    <div class="portfolio__card-inner">
+                        <img src="assets/images/Sante-Plus.png" alt="Sant&eacute; Plus - Site web" loading="lazy" decoding="async">
+                        <div class="portfolio__card-overlay">
+                            <span class="portfolio__card-category">Sant&eacute; Plus</span>
+                            <h3 class="portfolio__card-title">Site Web</h3>
                         </div>
                     </div>
                 </a>
 
-                <!-- Item 4 - SaaS (bas, spans 2 columns) -->
-                <div class="portfolio__item">
-                    <div class="portfolio__image-wrapper">
-                        <picture>
-                            <source media="(max-width: 768px)" srcset="assets/images/Saas-mobil.png" width="768" height="472">
-                            <img src="assets/images/Saas.png" alt="Application web SaaS sur mesure" width="1536" height="560" loading="lazy" decoding="async">
-                        </picture>
-                        <div class="portfolio__item-overlay">
-                            <span class="portfolio__item-category">Projet Confidentiel</span>
-                            <h3 class="portfolio__item-title">Web App</h3>
+                <!-- Item 4 - Voss FHS Luftsportlag -->
+                <a href="https://vossfhs.kelap.fr/" target="_blank" rel="noopener" class="portfolio__card">
+                    <div class="portfolio__card-inner">
+                        <img src="assets/images/Voss-FHS.png" alt="Voss FHS Luftsportlag - Site web et web app" loading="lazy" decoding="async">
+                        <div class="portfolio__card-overlay">
+                            <span class="portfolio__card-category">Voss FHS Luftsportlag</span>
+                            <h3 class="portfolio__card-title">Site Web + Web App</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Item 5 - Saint-Nicolas Rénovation (masqué - pas terminé) -->
+                <!--
+                <div class="portfolio__card">
+                    <div class="portfolio__card-inner">
+                        <img src="assets/images/St-Nicolas-Renovation.png" alt="Saint-Nicolas Rénovation - Site web" loading="lazy" decoding="async">
+                        <div class="portfolio__card-overlay">
+                            <span class="portfolio__card-category">Saint-Nicolas Rénovation</span>
+                            <h3 class="portfolio__card-title">Site Web</h3>
                         </div>
                     </div>
                 </div>
+                -->
 
+                <!-- Item 5 - Naprapat Samuel -->
+                <a href="https://naprapat-samuel.kelap.fr/" target="_blank" rel="noopener" class="portfolio__card">
+                    <div class="portfolio__card-inner">
+                        <img src="assets/images/Naprapat-Samuel.png" alt="Naprapat Samuel - Site web" loading="lazy" decoding="async">
+                        <div class="portfolio__card-overlay">
+                            <span class="portfolio__card-category">Naprapat Samuel</span>
+                            <h3 class="portfolio__card-title">Site Web</h3>
+                        </div>
+                    </div>
+                </a>
             </div>
+
+            <p class="portfolio__more">Et bien d'autres&hellip; <a href="#cta">Contactez-nous</a> pour en voir plus.</p>
         </div>
     </section>
+
 
     <!-- ============================================
          SECTION 4: SERVICES
@@ -459,7 +483,121 @@
     </section>
 
     <!-- ============================================
-         SECTION 6: CTA
+         SECTION 6: FAQ
+         ============================================ -->
+    <section id="faq" class="section section--faq">
+        <div class="container">
+            <div class="faq__header">
+                <h2 class="faq__title">QUESTIONS</h2>
+                <p class="faq__title faq__title--outline" aria-hidden="true">FR&Eacute;QUENTES</p>
+            </div>
+
+            <div class="faq__list">
+                <details class="faq__item" open>
+                    <summary class="faq__question">
+                        <span>Combien co&ucirc;te la cr&eacute;ation d'un site internet professionnel&nbsp;?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </summary>
+                    <div class="faq__answer"><div class="faq__answer-inner">
+                        <p>Le prix varie en fonction de la complexit&eacute; du projet&nbsp;: nombre de pages, fonctionnalit&eacute;s sp&eacute;cifiques, int&eacute;grations, design sur mesure&hellip; Chaque site est unique, c'est pourquoi nous &eacute;tablissons un devis personnalis&eacute; apr&egrave;s avoir compris vos besoins. <a href="#cta">Contactez-nous</a> pour obtenir le v&ocirc;tre.</p>
+                    </div></div>
+                </details>
+
+                <details class="faq__item">
+                    <summary class="faq__question">
+                        <span>Y a-t-il des frais cach&eacute;s apr&egrave;s la livraison&nbsp;?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </summary>
+                    <div class="faq__answer"><div class="faq__answer-inner">
+                        <p>Non, aucun. Une fois votre site livr&eacute;, il est &agrave; vous. Pas de frais cach&eacute;s, pas de co&ucirc;ts suppl&eacute;mentaires surprise. Le prix convenu est le prix final.</p>
+                    </div></div>
+                </details>
+
+                <details class="faq__item">
+                    <summary class="faq__question">
+                        <span>Combien de temps faut-il pour cr&eacute;er un site&nbsp;?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </summary>
+                    <div class="faq__answer"><div class="faq__answer-inner">
+                        <p>Cela d&eacute;pend de l'ampleur du projet. Pour un site vitrine one-page, comptez environ 10&nbsp;jours. Un site plus complexe avec plusieurs pages et fonctionnalit&eacute;s prendra naturellement plus de temps. Nous d&eacute;finissons ensemble un calendrier clair d&egrave;s le d&eacute;part.</p>
+                    </div></div>
+                </details>
+
+                <details class="faq__item">
+                    <summary class="faq__question">
+                        <span>Puis-je demander des modifications apr&egrave;s la mise en ligne&nbsp;?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </summary>
+                    <div class="faq__answer"><div class="faq__answer-inner">
+                        <p>Bien s&ucirc;r. Il vous suffit de nous recontacter et nous effectuerons les mises &agrave; jour souhait&eacute;es. Le co&ucirc;t d&eacute;pendra de la nature et de l'ampleur des modifications demand&eacute;es.</p>
+                    </div></div>
+                </details>
+
+                <details class="faq__item">
+                    <summary class="faq__question">
+                        <span>Comment se d&eacute;roule un projet de A &agrave; Z&nbsp;?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </summary>
+                    <div class="faq__answer"><div class="faq__answer-inner">
+                        <p>C'est simple et transparent. D'abord, un appel pour comprendre votre activit&eacute;, votre cible et vos objectifs. Ensuite, nous cr&eacute;ons une maquette visuelle que vous validez. Une fois approuv&eacute;e, nous d&eacute;veloppons le site enti&egrave;rement sur mesure. Vous recevez le r&eacute;sultat final pr&ecirc;t &agrave; &ecirc;tre mis en ligne.</p>
+                    </div></div>
+                </details>
+
+                <details class="faq__item">
+                    <summary class="faq__question">
+                        <span>Dois-je fournir les textes et les images&nbsp;?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </summary>
+                    <div class="faq__answer"><div class="faq__answer-inner">
+                        <p>Ce n'est pas obligatoire, mais c'est fortement conseill&eacute;. Vos propres images et textes apportent une authenticit&eacute; que rien ne remplace et renforcent l'identit&eacute; de votre marque sur le site.</p>
+                    </div></div>
+                </details>
+
+                <details class="faq__item">
+                    <summary class="faq__question">
+                        <span>Pourrai-je modifier le contenu de mon site moi-m&ecirc;me&nbsp;?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </summary>
+                    <div class="faq__answer"><div class="faq__answer-inner">
+                        <p>Cela d&eacute;pend du type de modifications. Nous pouvons mettre en place un syst&egrave;me d'administration pour que vous soyez autonome sur les changements courants. C'est une option suppl&eacute;mentaire qui s'adapte &agrave; vos besoins.</p>
+                    </div></div>
+                </details>
+
+                <details class="faq__item">
+                    <summary class="faq__question">
+                        <span>Mon site sera-t-il bien r&eacute;f&eacute;renc&eacute; sur Google&nbsp;?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </summary>
+                    <div class="faq__answer"><div class="faq__answer-inner">
+                        <p>Oui. Nous int&eacute;grons le SEO d&egrave;s la conception. Ensemble, nous d&eacute;finissons les mots-cl&eacute;s strat&eacute;giques sur lesquels vous souhaitez &ecirc;tre positionn&eacute;, et nous optimisons chaque page en cons&eacute;quence.</p>
+                    </div></div>
+                </details>
+
+                <details class="faq__item">
+                    <summary class="faq__question">
+                        <span>Le site sera-t-il adapt&eacute; aux mobiles et tablettes&nbsp;?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </summary>
+                    <div class="faq__answer"><div class="faq__answer-inner">
+                        <p>Absolument. Tous nos sites sont con&ccedil;us en responsive design et s'adaptent parfaitement &agrave; tous les &eacute;crans&nbsp;: ordinateur, tablette et mobile.</p>
+                    </div></div>
+                </details>
+
+                <details class="faq__item">
+                    <summary class="faq__question">
+                        <span>Pourquoi faire appel &agrave; une agence plut&ocirc;t qu'utiliser Wix ou WordPress&nbsp;?</span>
+                        <span class="faq__icon" aria-hidden="true"></span>
+                    </summary>
+                    <div class="faq__answer"><div class="faq__answer-inner">
+                        <p>Un site cr&eacute;&eacute; avec un outil gratuit est un site parmi des millions. Nous, nous concevons des sites qui convertissent. Notre expertise apporte une vraie plus-value &agrave; votre projet&nbsp;: un design unique, une strat&eacute;gie de conversion et un site qui travaille r&eacute;ellement pour votre entreprise.</p>
+                    </div></div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 7: CTA
          ============================================ -->
     <section id="cta" class="section section--cta">
         <div class="cta__pattern" aria-hidden="true"></div>

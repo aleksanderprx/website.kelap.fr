@@ -5,7 +5,7 @@
    ============================================ */
 
 const HeroBackground = (() => {
-    let scene, camera, renderer, particles, mouseX = 0, mouseY = 0;
+    let scene, camera, renderer, particles, mouseX = 0, mouseY = 0, scrollProgress = 0;
     let animationId;
     let isActive = true;
     let isMobile = false;
@@ -93,14 +93,19 @@ const HeroBackground = (() => {
             animate();
         });
 
-        // Mouse parallax
+        // Mouse parallax + scroll
         document.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('scroll', onScroll);
         window.addEventListener('resize', onResize);
     }
 
     function onMouseMove(e) {
         mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
         mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+    }
+
+    function onScroll() {
+        scrollProgress = window.scrollY / window.innerHeight;
     }
 
     function onResize() {
@@ -131,9 +136,9 @@ const HeroBackground = (() => {
             }
         });
 
-        // Camera parallax following mouse
+        // Camera parallax following mouse + scroll
         camera.position.x += (mouseX * 3 - camera.position.x) * 0.02;
-        camera.position.y += (-mouseY * 2 - camera.position.y) * 0.02;
+        camera.position.y += (-mouseY * 2 - scrollProgress * 8 - camera.position.y) * 0.02;
         camera.lookAt(scene.position);
 
         renderer.render(scene, camera);
@@ -144,6 +149,7 @@ const HeroBackground = (() => {
         if (animationId) cancelAnimationFrame(animationId);
         if (renderer) renderer.dispose();
         document.removeEventListener('mousemove', onMouseMove);
+        window.removeEventListener('scroll', onScroll);
         window.removeEventListener('resize', onResize);
     }
 

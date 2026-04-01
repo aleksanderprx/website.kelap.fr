@@ -19,19 +19,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // GSAP.SET — Hide elements before animating
     // ==========================================
     gsap.set('.hero__logo', { opacity: 0 });
+    gsap.set('.hero__nav-right', { opacity: 0, y: -10 });
     gsap.set('.hero__eyebrow', { opacity: 0, y: 20 });
     gsap.set('.hero__title-line', { opacity: 0, y: 60 });
     gsap.set('.hero__subtitle', { opacity: 0, y: 30 });
+    gsap.set('.hero__cta-btn', { opacity: 0, y: 20 });
     gsap.set('.hero__scroll', { opacity: 0 });
 
     gsap.set('.value__headline span', { opacity: 0, clipPath: 'inset(0 100% 0 0)' });
     gsap.set('.value__description', { opacity: 0, y: 30 });
-    gsap.set('.value__line', { scaleX: 0 });
-    gsap.set('.stat', { opacity: 0, y: 40 });
+gsap.set('.stat', { opacity: 0, y: 40 });
+
+    gsap.set('.faq__title', { opacity: 0, y: 30 });
+    gsap.set('.faq__item', { opacity: 0, y: 20 });
 
     gsap.set('.portfolio__title', { opacity: 0, y: 20 });
     gsap.set('.portfolio__subtitle', { opacity: 0, y: 20 });
-    gsap.set('.portfolio__item', { opacity: 0, scale: 0.92 });
+    // Cards: first visible, rest hidden below the stack
+    const portfolioCards = gsap.utils.toArray('.portfolio__card');
+    portfolioCards.forEach((card, i) => {
+        if (i === 0) {
+            gsap.set(card, { yPercent: 0, zIndex: 10 });
+        } else {
+            gsap.set(card, { yPercent: 100, zIndex: 10 + i });
+        }
+    });
 
     gsap.set('.services__title', { opacity: 0, y: 30 });
     gsap.set('.service-item', { opacity: 0, x: -60 });
@@ -72,6 +84,18 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: 0.6,
             ease: 'power2.out'
         }, '-=0.3')
+        .to('.hero__cta-btn', {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power2.out'
+        }, '-=0.2')
+        .to('.hero__nav-right', {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: 'power2.out'
+        }, '-=0.4')
         .to('.hero__scroll', {
             opacity: 1,
             duration: 0.5,
@@ -132,18 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: 'power2.out'
     });
 
-    // Horizontal line draw
-    gsap.to('.value__line', {
-        scrollTrigger: {
-            trigger: '.value__line',
-            start: 'top 85%',
-            end: 'top 60%',
-            scrub: 0.5
-        },
-        scaleX: 1,
-        ease: 'none'
-    });
-
     // Stats animation
     const statsElements = gsap.utils.toArray('.stat');
     statsElements.forEach((stat, i) => {
@@ -196,20 +208,67 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: 'power2.out'
     });
 
-    gsap.utils.toArray('.portfolio__item').forEach((item, i) => {
-        gsap.to(item, {
+    // Pinned portfolio with stacking cards + snap
+    if (portfolioCards.length > 1) {
+        const pinSection = document.querySelector('.portfolio__pinned');
+        const totalCards = portfolioCards.length;
+        const moreText = document.querySelector('.portfolio__more');
+
+        // Build snap points: one per card transition
+        const snapValues = [0];
+        for (let i = 1; i < totalCards; i++) {
+            snapValues.push(i / (totalCards - 1));
+        }
+
+        const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: item,
-                start: 'top 90%',
-                toggleActions: 'play none none none'
-            },
-            opacity: 1,
-            scale: 1,
-            duration: 0.7,
-            delay: i * 0.1,
-            ease: 'power2.out'
+                trigger: '.section--portfolio',
+                start: 'top top',
+                end: '+=' + (totalCards * 150) + '%',
+                pin: pinSection,
+                scrub: 3,
+                snap: {
+                    snapTo: (value) => {
+                        // Find closest snap point
+                        let closest = snapValues[0];
+                        let minDist = Math.abs(value - closest);
+                        for (let i = 1; i < snapValues.length; i++) {
+                            const dist = Math.abs(value - snapValues[i]);
+                            if (dist < minDist) {
+                                minDist = dist;
+                                closest = snapValues[i];
+                            }
+                        }
+                        // Snap interval per card
+                        const step = 1 / (totalCards - 1);
+                        const fraction = minDist / step;
+                        // Only snap if within first 1/5 or last 1/5 of the transition
+                        if (fraction < 0.2 || fraction > 0.8) {
+                            return closest;
+                        }
+                        // Otherwise stay where you are
+                        return value;
+                    },
+                    duration: { min: 0.6, max: 1.2 },
+                    delay: 0.1,
+                    ease: 'power1.inOut'
+                },
+                onLeave: () => moreText && moreText.classList.add('portfolio__more--visible'),
+                onEnterBack: () => moreText && moreText.classList.remove('portfolio__more--visible'),
+            }
         });
-    });
+
+        // Each card slides up directly — no pause between
+        portfolioCards.forEach((card, i) => {
+            if (i > 0) {
+                tl.to(card, {
+                    yPercent: 0,
+                    duration: 1,
+                    ease: 'power2.inOut'
+                });
+            }
+        });
+    }
 
     // ==========================================
     // SERVICES SECTION
@@ -462,4 +521,88 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 4000);
         });
     }
+
+    // ==========================================
+    // FAQ ENTRANCE ANIMATIONS
+    // ==========================================
+    gsap.utils.toArray('.faq__title').forEach((title, i) => {
+        gsap.to(title, {
+            scrollTrigger: {
+                trigger: '.faq__header',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            delay: i * 0.15,
+            ease: 'power2.out'
+        });
+    });
+
+    gsap.utils.toArray('.faq__item').forEach((item, i) => {
+        gsap.to(item, {
+            scrollTrigger: {
+                trigger: item,
+                start: 'top 90%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            delay: i * 0.05,
+            ease: 'power2.out'
+        });
+    });
+
+    // ==========================================
+    // FAQ ACCORDION ANIMATION
+    // ==========================================
+    const faqItems = document.querySelectorAll('.faq__item');
+
+    function closeFaqItem(item) {
+        const answer = item.querySelector('.faq__answer');
+        if (!answer) return;
+        answer.style.height = answer.scrollHeight + 'px';
+        requestAnimationFrame(() => {
+            answer.style.height = '0px';
+        });
+        answer.addEventListener('transitionend', () => {
+            item.open = false;
+            answer.style.height = '';
+        }, { once: true });
+    }
+
+    faqItems.forEach(item => {
+        const answer = item.querySelector('.faq__answer');
+        const inner = item.querySelector('.faq__answer-inner');
+        if (!answer || !inner) return;
+
+        item.addEventListener('click', e => {
+            e.preventDefault();
+
+            if (item.open) {
+                // Closing current
+                closeFaqItem(item);
+            } else {
+                // Close any other open item first
+                faqItems.forEach(other => {
+                    if (other !== item && other.open) {
+                        closeFaqItem(other);
+                    }
+                });
+
+                // Opening
+                item.open = true;
+                const h = inner.offsetHeight;
+                answer.style.height = '0px';
+                requestAnimationFrame(() => {
+                    answer.style.height = h + 'px';
+                });
+                answer.addEventListener('transitionend', () => {
+                    answer.style.height = '';
+                }, { once: true });
+            }
+        });
+    });
 });
