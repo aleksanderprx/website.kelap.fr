@@ -256,7 +256,14 @@ gsap.set('.stat', { opacity: 0, y: 40 });
                     delay: 0.1,
                     ease: 'power1.inOut'
                 },
-                onLeave: () => moreText && moreText.classList.add('portfolio__more--visible'),
+                onLeave: () => {
+                    if (moreText) moreText.classList.add('portfolio__more--visible');
+                    gsap.to(window, {
+                        scrollTo: { y: '#services', offsetY: 0 },
+                        duration: 1,
+                        ease: 'power2.inOut'
+                    });
+                },
                 onEnterBack: () => moreText && moreText.classList.remove('portfolio__more--visible'),
             }
         });
