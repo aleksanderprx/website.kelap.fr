@@ -342,7 +342,7 @@ html.js-loaded .hero__cta-btn {
 .hero__title {
     font-family: var(--font-headline);
     font-weight: 700;
-    font-size: 96px;
+    font-size: clamp(38px, 6.5vw, 96px);
     line-height: 1.05;
     color: var(--color-white);
     margin-bottom: 24px;
@@ -355,7 +355,7 @@ html.js-loaded .hero__cta-btn {
 .hero__subtitle {
     font-family: var(--font-headline);
     font-weight: 300;
-    font-size: 42px;
+    font-size: clamp(20px, 2.9vw, 42px);
     color: var(--color-gray);
 }
 
@@ -832,8 +832,8 @@ html.js-loaded .hero__cta-btn {
 }
 
 .trust__badge-icon {
-    width: 48px;
-    height: 56px;
+    width: 64px;
+    height: 74px;
     margin-bottom: 12px;
     object-fit: contain;
 }
@@ -844,8 +844,8 @@ html.js-loaded .hero__cta-btn {
     font-size: 48px;
     color: var(--color-white);
     display: block;
-    height: 56px;
-    line-height: 56px;
+    height: 74px;
+    line-height: 74px;
     margin-bottom: 12px;
     letter-spacing: -1px;
 }
@@ -1387,6 +1387,7 @@ html.js-loaded .cta__callback-btn {
 .faq__list {
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 40px;
 }
 
 .faq__item {
@@ -1492,6 +1493,56 @@ html.js-loaded .faq__question {
 }
 
 /* ============================================
+   RESPONSIVE — SMALL DESKTOP / TABLET LANDSCAPE (max-width: 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+
+    :root {
+        --section-padding: 100px 40px;
+    }
+
+    /* --- Value Proposition --- */
+    .value__headline {
+        font-size: 60px;
+    }
+
+    .stat__number,
+    .stat__suffix {
+        font-size: 56px;
+    }
+
+    /* --- Portfolio --- */
+    .portfolio__title {
+        font-size: 52px;
+    }
+
+    /* --- Services --- */
+    .services__title {
+        font-size: 48px;
+    }
+
+    /* --- FAQ --- */
+    .faq__title {
+        font-size: 48px;
+    }
+
+    /* --- Trust --- */
+    .trust__quote blockquote p {
+        font-size: 28px;
+    }
+
+    .trust__quote::before,
+    .trust__quote::after {
+        font-size: 140px;
+    }
+
+    /* --- CTA --- */
+    .cta__title {
+        font-size: 48px;
+    }
+}
+
+/* ============================================
    RESPONSIVE — TABLET & MOBILE (max-width: 768px)
    ============================================ */
 @media (max-width: 768px) {
@@ -1548,12 +1599,7 @@ html.js-loaded .faq__question {
     }
 
     .hero__title {
-        font-size: 48px;
         margin-bottom: 16px;
-    }
-
-    .hero__subtitle {
-        font-size: 24px;
     }
 
     .hero__scroll {
@@ -1842,14 +1888,6 @@ html.js-loaded .faq__question {
    RESPONSIVE — SMALL PHONES (max-width: 480px)
    ============================================ */
 @media (max-width: 480px) {
-
-    .hero__title {
-        font-size: 38px;
-    }
-
-    .hero__subtitle {
-        font-size: 20px;
-    }
 
     .value__headline {
         font-size: 34px;

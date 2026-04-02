@@ -166,18 +166,19 @@ gsap.set('.stat', { opacity: 0, y: 40 });
                 trigger: stat,
                 start: 'top 88%',
                 toggleActions: 'play none none none',
-                onEnter: () => {
-                    const numberEl = stat.querySelector('.stat__number');
-                    if (numberEl && numberEl.textContent === '0') {
-                        Counters.animateCounter(numberEl, 2000);
-                    }
-                }
+                once: true
             },
             opacity: 1,
             y: 0,
             duration: 0.6,
             delay: i * 0.15,
-            ease: 'power2.out'
+            ease: 'power2.out',
+            onStart: () => {
+                const numberEl = stat.querySelector('.stat__number');
+                if (numberEl && numberEl.textContent.trim() === '0') {
+                    Counters.animateCounter(numberEl, 2000);
+                }
+            }
         });
     });
 
@@ -367,18 +368,19 @@ gsap.set('.stat', { opacity: 0, y: 40 });
                 trigger: '.trust__badges',
                 start: 'top 88%',
                 toggleActions: 'play none none none',
-                onEnter: () => {
-                    const numberEl = badge.querySelector('.trust__badge-number');
-                    if (numberEl && numberEl.textContent === '0') {
-                        Counters.animateCounter(numberEl, 1500);
-                    }
-                }
+                once: true
             },
             opacity: 1,
             y: 0,
             duration: 0.6,
             delay: i * 0.15,
-            ease: 'power2.out'
+            ease: 'power2.out',
+            onStart: () => {
+                const numberEl = badge.querySelector('.trust__badge-number');
+                if (numberEl && numberEl.textContent.trim() === '0') {
+                    Counters.animateCounter(numberEl, 1500);
+                }
+            }
         });
     });
 
@@ -607,4 +609,7 @@ gsap.set('.stat', { opacity: 0, y: 40 });
             }
         });
     });
+
+    // Recalculate all ScrollTrigger positions after setup
+    ScrollTrigger.refresh();
 });
