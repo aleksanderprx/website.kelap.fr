@@ -63,6 +63,19 @@
             text-decoration: underline;
             text-underline-offset: 3px;
         }
+        .legal__content h2 { font-variant-numeric: tabular-nums; }
+        .legal__back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-body);
+            font-size: 13px;
+            color: var(--color-gray);
+            text-decoration: none;
+            margin-bottom: 32px;
+            transition: color 0.3s;
+        }
+        .legal__back:hover { color: var(--color-white); }
         @media (max-width: 768px) {
             .legal__nav { padding: 24px 20px; }
             .legal__logo { height: 26px; }
@@ -78,6 +91,7 @@
             <a href="/legal.html" style="font-family:var(--font-body);font-size:13px;color:var(--color-gray);letter-spacing:1px;">FR</a>
         </nav>
         <div class="legal__content">
+            <a href="/en/" class="legal__back">&larr; Back to site</a>
             <h1 class="legal__title">Legal Notice</h1>
             <p class="legal__updated">Last updated: April 5, 2026</p>
 

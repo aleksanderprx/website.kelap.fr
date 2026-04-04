@@ -63,6 +63,19 @@
             text-decoration: underline;
             text-underline-offset: 3px;
         }
+        .legal__content h2 { font-variant-numeric: tabular-nums; }
+        .legal__back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-body);
+            font-size: 13px;
+            color: var(--color-gray);
+            text-decoration: none;
+            margin-bottom: 32px;
+            transition: color 0.3s;
+        }
+        .legal__back:hover { color: var(--color-white); }
         @media (max-width: 768px) {
             .legal__nav { padding: 24px 20px; }
             .legal__logo { height: 26px; }
@@ -78,6 +91,7 @@
             <a href="/privacy.html" style="font-family:var(--font-body);font-size:13px;color:var(--color-gray);letter-spacing:1px;">FR</a>
         </nav>
         <div class="legal__content">
+            <a href="/en/" class="legal__back">&larr; Back to site</a>
             <h1 class="legal__title">Privacy Policy</h1>
             <p class="legal__updated">Last updated: April 5, 2026</p>
 
@@ -134,9 +148,6 @@
             </ul>
             <p>
                 To exercise these rights, contact us at <a href="mailto:contact@kelap.fr">contact@kelap.fr</a>.
-            </p>
-            <p>
-                You may also file a complaint with the <a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL</a> (French Data Protection Authority).
             </p>
 
             <h2>8. Third-party processors</h2>
