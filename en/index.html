@@ -627,6 +627,25 @@
                 <div class="cta__cal-embed">
                     <div id="my-cal-inline-call"></div>
                 </div>
+
+                <div class="cta__divider">
+                    <span class="cta__divider-line"></span>
+                    <span class="cta__divider-text">or</span>
+                    <span class="cta__divider-line"></span>
+                </div>
+
+                <form class="cta__callback" id="callback-form">
+                    <p class="cta__callback-label">We'll call you back</p>
+                    <div class="cta__callback-row">
+                        <div class="cta__country-picker" id="callback-country"></div>
+                        <input type="tel" class="cta__callback-input" id="callback-phone" placeholder="6 12 34 56 78" required autocomplete="tel" aria-label="Your phone number">
+                        <button type="submit" class="cta__callback-btn" aria-label="Send">
+                            <span>Send</span>
+                            <span class="cta__callback-arrow" aria-hidden="true">&rarr;</span>
+                        </button>
+                    </div>
+                    <p class="cta__callback-status" id="callback-status" aria-live="polite"></p>
+                </form>
             </div>
         </div>
     </section>
