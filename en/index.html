@@ -688,6 +688,54 @@
     <script src="../js/country-picker.js" defer></script>
     <script src="../js/main.js" defer></script>
 
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookie-banner">
+        <p class="cookie-banner__text">This site uses cookies to improve your experience and analyse traffic.</p>
+        <div class="cookie-banner__actions">
+            <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookie-accept">Accept</button>
+            <button class="cookie-banner__btn cookie-banner__btn--decline" id="cookie-decline">Decline</button>
+        </div>
+    </div>
+
+    <!-- Google Analytics (loaded after consent) -->
+    <script>
+    (function(){
+        function loadGA() {
+            if (document.getElementById('ga-script')) return;
+            var s = document.createElement('script');
+            s.id = 'ga-script';
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-BVRWDWXVT5';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
+            gtag('js', new Date());
+            gtag('config', 'G-BVRWDWXVT5');
+        }
+
+        var consent = localStorage.getItem('kelap_cookies');
+        var banner = document.getElementById('cookie-banner');
+
+        if (consent === 'accepted') {
+            loadGA();
+        } else if (consent !== 'declined') {
+            banner.classList.add('cookie-banner--visible');
+        }
+
+        document.getElementById('cookie-accept').addEventListener('click', function(){
+            localStorage.setItem('kelap_cookies', 'accepted');
+            banner.classList.remove('cookie-banner--visible');
+            loadGA();
+        });
+
+        document.getElementById('cookie-decline').addEventListener('click', function(){
+            localStorage.setItem('kelap_cookies', 'declined');
+            banner.classList.remove('cookie-banner--visible');
+        });
+    })();
+    </script>
+
     <!-- Noscript fallback -->
     <noscript>
         <style>

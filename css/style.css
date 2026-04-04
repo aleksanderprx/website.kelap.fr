@@ -1498,6 +1498,73 @@ html.js-loaded .faq__question {
 }
 
 /* ============================================
+   COOKIE CONSENT BANNER
+   ============================================ */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 15, 20, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    z-index: 9999;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cookie-banner--visible {
+    transform: translateY(0);
+}
+
+.cookie-banner__text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--color-gray);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.cookie-banner__actions {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.cookie-banner__btn {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 10px 24px;
+    border-radius: 60px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.cookie-banner__btn:hover {
+    opacity: 0.85;
+}
+
+.cookie-banner__btn--accept {
+    background: var(--color-white);
+    color: var(--color-black);
+}
+
+.cookie-banner__btn--decline {
+    background: transparent;
+    color: var(--color-gray);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ============================================
    RESPONSIVE — SMALL DESKTOP / TABLET LANDSCAPE (max-width: 1024px)
    ============================================ */
 @media (max-width: 1024px) {
@@ -1886,6 +1953,13 @@ html.js-loaded .faq__question {
     .footer__tagline {
         font-size: 10px;
         letter-spacing: 2px;
+    }
+
+    .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 24px;
+        gap: 16px;
     }
 }
 
