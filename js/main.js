@@ -37,15 +37,7 @@ gsap.set('.stat', { opacity: 0, y: 40 });
 
     gsap.set('.portfolio__title', { opacity: 0, y: 20 });
     gsap.set('.portfolio__subtitle', { opacity: 0, y: 20 });
-    // Cards: first visible, rest hidden below the stack
-    const portfolioCards = gsap.utils.toArray('.portfolio__card');
-    portfolioCards.forEach((card, i) => {
-        if (i === 0) {
-            gsap.set(card, { yPercent: 0, zIndex: 10 });
-        } else {
-            gsap.set(card, { yPercent: 100, zIndex: 10 + i });
-        }
-    });
+    gsap.set('.portfolio__card', { opacity: 0, y: 30 });
 
     gsap.set('.services__title', { opacity: 0, y: 30 });
     gsap.set('.service-item', { opacity: 0, x: -60 });
@@ -211,74 +203,21 @@ gsap.set('.stat', { opacity: 0, y: 40 });
         ease: 'power2.out'
     });
 
-    // Pinned portfolio with stacking cards + snap
-    if (portfolioCards.length > 1) {
-        const pinSection = document.querySelector('.portfolio__pinned');
-        const totalCards = portfolioCards.length;
-        const moreText = document.querySelector('.portfolio__more');
-
-        // Build snap points: one per card transition
-        const snapValues = [0];
-        for (let i = 1; i < totalCards; i++) {
-            snapValues.push(i / (totalCards - 1));
-        }
-
-        const tl = gsap.timeline({
+    // Portfolio cards: simple staggered entrance
+    gsap.utils.toArray('.portfolio__card').forEach((card, i) => {
+        gsap.to(card, {
             scrollTrigger: {
-                trigger: '.section--portfolio',
-                start: 'top top',
-                end: '+=' + (totalCards * 150) + '%',
-                pin: pinSection,
-                scrub: 3,
-                snap: {
-                    snapTo: (value) => {
-                        // Find closest snap point
-                        let closest = snapValues[0];
-                        let minDist = Math.abs(value - closest);
-                        for (let i = 1; i < snapValues.length; i++) {
-                            const dist = Math.abs(value - snapValues[i]);
-                            if (dist < minDist) {
-                                minDist = dist;
-                                closest = snapValues[i];
-                            }
-                        }
-                        // Snap interval per card
-                        const step = 1 / (totalCards - 1);
-                        const fraction = minDist / step;
-                        // Only snap if within first 1/5 or last 1/5 of the transition
-                        if (fraction < 0.2 || fraction > 0.8) {
-                            return closest;
-                        }
-                        // Otherwise stay where you are
-                        return value;
-                    },
-                    duration: { min: 0.6, max: 1.2 },
-                    delay: 0.1,
-                    ease: 'power1.inOut'
-                },
-                onLeave: () => {
-                    if (moreText) moreText.classList.add('portfolio__more--visible');
-                    gsap.to(window, {
-                        scrollTo: { y: '#services', offsetY: 0 },
-                        duration: 1,
-                        ease: 'power2.inOut'
-                    });
-                },
-                onEnterBack: () => moreText && moreText.classList.remove('portfolio__more--visible'),
-            }
+                trigger: card,
+                start: 'top 90%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            delay: (i % 3) * 0.1,
+            ease: 'power2.out'
         });
-
-        // Each card slides up directly — no pause between
-        portfolioCards.forEach((card, i) => {
-            if (i > 0) {
-                tl.to(card, {
-                    yPercent: 0,
-                    duration: 1,
-                    ease: 'power2.inOut'
-                });
-            }
-        });
-    }
+    });
 
     // ==========================================
     // SERVICES SECTION
