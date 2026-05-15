@@ -46,7 +46,6 @@ gsap.set('.stat', { opacity: 0, y: 40 });
 
     gsap.set('.cta__title span', { opacity: 0, y: 40 });
     gsap.set('.cta__subtitle', { opacity: 0, y: 20 });
-    gsap.set('.cta__buttons', { opacity: 0, y: 30 });
 
     // ==========================================
     // HERO ENTRANCE ANIMATION
@@ -359,18 +358,6 @@ gsap.set('.stat', { opacity: 0, y: 40 });
         y: 0,
         duration: 0.6,
         ease: 'power2.out'
-    });
-
-    gsap.to('.cta__buttons', {
-        scrollTrigger: {
-            trigger: '.cta__buttons',
-            start: 'top 90%',
-            toggleActions: 'play none none none'
-        },
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-        ease: 'back.out(1.4)'
     });
 
     // ==========================================

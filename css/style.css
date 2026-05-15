@@ -720,7 +720,7 @@ html.js-loaded .hero__cta-btn {
     font-family: var(--font-body);
     font-weight: 300;
     font-size: 16px;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.7);
     flex: 1;
     text-align: left;
     opacity: 0;
@@ -844,6 +844,7 @@ html.js-loaded .hero__cta-btn {
     height: 74px;
     margin-bottom: 12px;
     object-fit: contain;
+    color: var(--color-white);
 }
 
 .trust__badge-number {
@@ -2033,5 +2034,43 @@ html.js-loaded .faq__question {
 
     .cta__title {
         font-size: 28px;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY — Custom cursor on touch devices
+   ============================================ */
+@media (hover: none), (pointer: coarse) {
+    .cursor,
+    html.js-loaded .cursor {
+        display: none !important;
+    }
+    body { cursor: auto; }
+}
+
+/* ============================================
+   ACCESSIBILITY — Reduced motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .cursor,
+    html.js-loaded .cursor {
+        display: none !important;
+    }
+
+    #hero-canvas {
+        display: none !important;
+    }
+
+    .hero__overlay {
+        background: var(--color-dark-bg);
     }
 }

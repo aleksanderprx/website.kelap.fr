@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KELAP &mdash; Creative Digital Agency | Websites, SaaS &amp; SEO</title>
-    <meta name="description" content="KELAP, creative digital agency. We build websites, landing pages, SaaS applications, e-commerce, SEO and AI automation. Real results, 15+ projects delivered.">
+    <meta name="description" content="KELAP, creative digital agency. Websites, SaaS, e-commerce, SEO and AI automation. 15+ projects delivered, 98% satisfaction. Free quote.">
     <meta name="author" content="KELAP">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="theme-color" content="#0a0f14">
@@ -324,18 +324,18 @@
             </div>
 
             <div class="value__stats">
-                <div class="stat">
-                    <span class="stat__number" data-target="15">0</span>
+                <div class="stat" aria-label="15 projects delivered">
+                    <span class="stat__number" data-target="15">15</span>
                     <span class="stat__suffix">+</span>
                     <span class="stat__label">Projects Delivered</span>
                 </div>
-                <div class="stat">
-                    <span class="stat__number" data-target="98">0</span>
+                <div class="stat" aria-label="98 % client satisfaction">
+                    <span class="stat__number" data-target="98">98</span>
                     <span class="stat__suffix">%</span>
                     <span class="stat__label">Client Satisfaction</span>
                 </div>
-                <div class="stat">
-                    <span class="stat__number" data-target="3">0</span>
+                <div class="stat" aria-label="3x average ROI">
+                    <span class="stat__number" data-target="3">3</span>
                     <span class="stat__suffix">x</span>
                     <span class="stat__label">Average ROI</span>
                 </div>
@@ -356,7 +356,7 @@
             <!-- Item 1 - Plancha Pizza -->
             <a href="https://pizza.kelap.fr" target="_blank" rel="noopener" class="portfolio__card">
                 <div class="portfolio__card-inner">
-                    <img src="../assets/images/Plancha Pizza.jpg" srcset="../assets/images/Plancha Pizza-mobile.jpg 662w, ../assets/images/Plancha Pizza.jpg 1000w" sizes="(max-width: 768px) 100vw, 1000px" alt="Plancha Pizza - Restaurant website" loading="lazy" decoding="async">
+                    <img src="../assets/images/Plancha%20Pizza.jpg" srcset="../assets/images/Plancha%20Pizza-mobile.jpg 662w, ../assets/images/Plancha%20Pizza.jpg 1000w" sizes="(max-width: 768px) 100vw, 1000px" alt="Plancha Pizza - Restaurant website" loading="lazy" decoding="async">
                     <div class="portfolio__card-overlay">
                         <span class="portfolio__card-category">Website</span>
                         <h3 class="portfolio__card-title">Plancha Pizza</h3>
@@ -497,15 +497,18 @@
 
                 <div class="trust__badges">
                     <div class="trust__badge">
-                        <img src="../assets/icons/icon-shield.png" alt="Quality shield" class="trust__badge-icon" width="48" height="56" loading="lazy" decoding="async">
+                        <svg class="trust__badge-icon" width="48" height="56" viewBox="0 0 24 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <path d="M12 2 3 6v6c0 6 4 10 9 12 5-2 9-6 9-12V6l-9-4z"/>
+                            <path d="m9 13 2 2 4-4"/>
+                        </svg>
                         <span class="trust__badge-label">Quality Guaranteed</span>
                     </div>
-                    <div class="trust__badge">
-                        <span class="trust__badge-number" data-target="6">0</span>
+                    <div class="trust__badge" aria-label="6 hours max response time">
+                        <span class="trust__badge-number" data-target="6">6</span>
                         <span class="trust__badge-label">Max Response Hours</span>
                     </div>
-                    <div class="trust__badge">
-                        <span class="trust__badge-number" data-target="100">0</span>
+                    <div class="trust__badge" aria-label="100 % tailor-made">
+                        <span class="trust__badge-number" data-target="100">100</span>
                         <span class="trust__badge-label">% Tailor-Made</span>
                     </div>
                 </div>
@@ -643,12 +646,12 @@
                 </p>
 
                 <form class="cta__callback" id="callback-form">
-                    <p class="cta__callback-label">We'll call you back</p>
+                    <p class="cta__callback-label">We'll call you back within 6h</p>
                     <div class="cta__callback-row">
                         <div class="cta__country-picker" id="callback-country"></div>
-                        <input type="tel" class="cta__callback-input" id="callback-phone" placeholder="6 12 34 56 78" required autocomplete="tel" aria-label="Your phone number">
-                        <button type="submit" class="cta__callback-btn" aria-label="Send">
-                            <span>Send</span>
+                        <input type="tel" inputmode="tel" class="cta__callback-input" id="callback-phone" placeholder="6 12 34 56 78" required autocomplete="tel" aria-label="Your phone number">
+                        <button type="submit" class="cta__callback-btn" aria-label="Get a call within 6h">
+                            <span>Get a call within 6h</span>
                             <span class="cta__callback-arrow" aria-hidden="true">&rarr;</span>
                         </button>
                     </div>
@@ -694,6 +697,20 @@
         calLink: "aleksander-perdoux/call",
     });
     Cal.ns.call("ui", {"theme":"dark","cssVarsPerTheme":{"light":{"cal-brand":"#EEEEEE"},"dark":{"cal-brand":"#EEEEEE"}},"hideEventTypeDetails":true,"layout":"month_view"});
+
+    // A11y: set iframe title once Cal.com injects it
+    (function setCalIframeTitle() {
+        const host = document.getElementById('my-cal-inline-call');
+        if (!host) return;
+        const obs = new MutationObserver(() => {
+            const iframe = host.querySelector('iframe');
+            if (iframe && !iframe.getAttribute('title')) {
+                iframe.setAttribute('title', 'Book a meeting with KELAP');
+                obs.disconnect();
+            }
+        });
+        obs.observe(host, { childList: true, subtree: true });
+    })();
     </script>
 
     <!-- Scripts (CDN) -->
