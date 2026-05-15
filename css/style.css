@@ -553,11 +553,27 @@ html.js-loaded .hero__cta-btn {
 
 .portfolio__card-overlay {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset: 0;
     padding: 28px 32px;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 55%, rgba(0,0,0,0) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+@media (hover: hover) {
+    .portfolio__card:hover .portfolio__card-overlay {
+        opacity: 1;
+    }
+}
+
+@media (hover: none) {
+    .portfolio__card-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+    }
 }
 
 .portfolio__card-category {
@@ -566,19 +582,27 @@ html.js-loaded .hero__cta-btn {
     font-size: 11px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--color-white);
-    display: inline-block;
-    padding: 5px 12px;
-    background: var(--color-accent);
-    border-radius: 20px;
-    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
 }
 
 .portfolio__card-title {
     font-family: var(--font-headline);
     font-weight: 700;
-    font-size: 22px;
+    font-size: 28px;
     color: var(--color-white);
+    line-height: 1.1;
+}
+
+.portfolio__card-title::after {
+    content: ' \2192';
+    display: inline-block;
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+}
+
+.portfolio__card:hover .portfolio__card-title::after {
+    transform: translateX(4px);
 }
 
 .portfolio__more {
@@ -1760,15 +1784,16 @@ html.js-loaded .faq__question {
 
     .portfolio__card-overlay {
         padding: 16px 20px;
+        opacity: 1;
+        background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
     }
 
     .portfolio__card-category {
         font-size: 10px;
-        padding: 4px 10px;
     }
 
     .portfolio__card-title {
-        font-size: 18px;
+        font-size: 22px;
     }
 
     /* Portfolio: show overlay on mobile (no hover) */
